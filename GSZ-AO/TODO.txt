@@ -1,0 +1,33 @@
+*************************************************************
+*************************************************************
+*************************************************************
+*** 							  ***
+*** 	 GGGGG	 SSSSSS	ZZZZZZZ		  AAA	 OOOOO	  ***
+*** 	GG   GG	SS	     ZZ		 AA AA	OO   OO	  ***
+*** 	G	SS	    ZZ		AA   AA	OO   OO	  ***
+*** 	G  GGGG	 SsSSS	  ZZZ	-------	AAAAAAA	OO   OO	  ***
+*** 	G    GG	     SS	 ZZ		AA   AA	OO   OO	  ***
+*** 	GG   GG	     SS	ZZ		AA   AA	OO   OO	  ***
+*** 	 GGGGG	SSSSSS	ZZZZZZZ		AA   AA	 OOOOO	  ***
+*** 							  ***
+*************************************************************
+*************************************************************
+*** 		      	    TODO	  		  ***
+*************************************************************
+*************************************************************
+NOTA: TODO, en programación se deriba del ingles TO DO, que
+literalmene significa "PARA HACER".
+*************************************************************
+*************************************************************
+- CLIENTE
+Flataría indexar los emoticones en las fuentes ;)
+AOUpdate, sistema de actualizaciónes. (Dylan!)
+
+- SERVIDOR
+¿Sacar el chekeo de la alineación de los clanes del tPiquete (timer) y buscar los lugares donde hacer el mismo.?
+
+- WORLDEDITOR
+
+
+
+Actualizado: 01/05/2013

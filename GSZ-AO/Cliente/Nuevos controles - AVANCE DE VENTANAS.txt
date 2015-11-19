@@ -1,0 +1,76 @@
+FALTAN:
+
+-HECHOS-
+
+REQUIEREN RETOQUES DE INTERFAZ:
+
+frmComerciarUsu
+frmConstruirHerrero (NOTA: El render de las maderas no se hace correctamente!)
+frmConstruirCarp (NOTA: El render de las maderas no se hace correctamente!)
+frmBancoObj 
+frmCrearPersonaje 
+frmKeypad 
+frmMain 
+frmOpciones 
+frmQuestInfo (FALTA COMPLETAMENTE)
+frmQuests (FALTA COMPLETAMENTE)
+
+HECHOS:
+
+frmCustomKeys
+frmEstadisticas
+frmEligeAlineacion (NOTA: ¿No debería eliminarse esta ventana?)
+frmCommet
+*?frmBancoObj - HECHO
+frmCambiaMotd - HECHO
+frmCantidad - HECHO
+frmCargando - HECHO? (no requiere botones :P)
+frmCharInfo - HECHO
+frmComerciar - HECHO
+frmConnect - HECHO
+*frmCrearPersonaje - HECHO
+frmCreditos - HECHO
+frmEntrenador - HECHO
+frmForo - HECHO
+frmGuildAdm - HECHO
+frmGuildBrief - HECHO
+frmGuildDetails - HECHO
+frmGuildFoundation - HECHO
+frmGuildLeader - HECHO
+frmGuildMember - HECHO
+frmGuildNews - HECHO
+frmGuildSol - HECHO
+frmGuildURL - HECHO
+*frmKeypad - HECHO
+*frmMain - HECHO (hacer los textos de jugadores online y fps... y quitar los botones de inventario, hechizos, y demas, de la interface base (ahora se colocan desde la programación) :P)
+frmMapa - HECHO
+frmMensaje - HECHO
+frmMessageTxt - HECHO
+frmMSG - HECHO
+frmNewPassword - HECHO
+*frmOpciones - HECHO (ya no necesitan dibujas las bases de todos los checkbox!!)
+frmParty - HECHO
+frmPeaceProp - HECHO
+frmSkills3 - HECHO (ya no resalta los nombre de los skills al pasar el mouse por encima, pero si usa los + y -)
+frmSpawnList - HECHO
+frmTutorial - HECHO
+frmUserRequest - HECHO
+
+* Formularios que requieren un retoque de interface
+
+// Mis temporales para copiar y pegar rapido jajaj xD
+
+    Call Audio.PlayWave(SND_CLICK)
+
+    Dim cControl As Control
+    For Each cControl In Me.Controls
+        If TypeOf cControl Is uAOButton Then
+            cControl.PictureEsquina = LoadPicture(ImgRequest(DirButtons & sty_bEsquina))
+            cControl.PictureFondo = LoadPicture(ImgRequest(DirButtons & sty_bFondo))
+            cControl.PictureHorizontal = LoadPicture(ImgRequest(DirButtons & sty_bHorizontal))
+            cControl.PictureVertical = LoadPicture(ImgRequest(DirButtons & sty_bVertical))
+        ElseIf TypeOf cControl Is uAOCheckbox Then
+            cControl.Picture = LoadPicture(ImgRequest(DirButtons & sty_cCheckbox))
+        End If
+    Next
+

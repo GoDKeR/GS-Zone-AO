@@ -1,0 +1,47 @@
+RAZA y su función previa
+------------------------
+* Gnomos - Nomades de las Montañas
+* Enanos - Dueños de los Subsuelos
+* Elfos - Guardianes de los Bosques
+* Elfos oscuros - Espíritus ancestrales
+* Humanos - Gobernantes del Imperio
+
+RAZAS y sus hábitat
+-------------------
+* Gnomos - Montañas y sectores rocosos, resistencia al frió
+* Enanos - Subsuelos, mazmorras, resistencia al calor
+* Elfos - Bosques y lagunas, climas templados y lluviosos
+* Elfos Oscuros - Subsuelos, bosques oscuros, climas sin luz
+* Humanos - Ciudades abarrotadas, climas moderados
+
+RAZAS y sus ventajas
+--------------------
+Gnomos
+- Buena magia
+- Rápidos
+- Fácil ocultarse
+- Muy carismáticos
+
+Enanos
+- Mal control de la magia
+- Buenos trabajadores de la minería y la madera
+- Buenos constructores con materiales de la minería
+- Grandes guerreros
+
+Elfos
+- Buenos trabajadores de la pesca y la madera
+- Grandes arqueros
+- Buen control de la magia
+- Grandes poderes de recuperación y curación
+- Gran carisma con los animales
+
+Elfos oscuros
+- Buenos guerreros en la oscuridad
+- Excelentes trabajadores de la minería
+- Excelentes constructores con materiales de la minería
+- Buenos poderes de recuperación y curación
+
+Humanos
+- Control moderado de la magia
+- Buenos para llevar grandes armaduras y armas pesadas
+- Buenos constructores con la madera

@@ -1,0 +1,15 @@
+La respuesta normal de "list_update.php" es... por ejemplo:
+
+blabla.txt|8|05a671c66aefea124cc08b76ea6d30bb
+blabla_2.txt|11|613b99821c77883123cf473bccc5dd01
+Otro dir\blabla_2.txt|13|0d75b9fd36193768d2c5b5a6cb0f3f04
+
+Si se lo ejecuta como "list_ipdate.php?updater":
+
+AOUpdate.exe|786432|7f8734a53428799e439cc86c39480a1e
+
+Sintaxis:
+
+Path+Archivo|Tamaño en Bytes|MD5
+
+La marca de fin de linea es Chr(10).

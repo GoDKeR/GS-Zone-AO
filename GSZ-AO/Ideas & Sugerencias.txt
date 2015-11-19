@@ -1,0 +1,224 @@
+*************************************************************
+*************************************************************
+*************************************************************
+*** 							  ***
+*** 	 GGGGG	 SSSSSS	ZZZZZZZ		  AAA	 OOOOO	  ***
+*** 	GG   GG	SS	     ZZ		 AA AA	OO   OO	  ***
+*** 	G	SS	    ZZ		AA   AA	OO   OO	  ***
+*** 	G  GGGG	 SsSSS	  ZZZ	-------	AAAAAAA	OO   OO	  ***
+*** 	G    GG	     SS	 ZZ		AA   AA	OO   OO	  ***
+*** 	GG   GG	     SS	ZZ		AA   AA	OO   OO	  ***
+*** 	 GGGGG	SSSSSS	ZZZZZZZ		AA   AA	 OOOOO	  ***
+*** 							  ***
+*************************************************************
+*************************************************************
+*** 		    Ideas  & Sugerencias	  	  ***
+*************************************************************
+*************************************************************
+
+GLOBALES
+-------------------------------------
+* Arboles desforestados
+Arboles que se talan hasta cierta capacidad y luego queda un tronco cortado durante X minutos hasta su respawn.
+* Ocarina... objeto que nos permite teletrasportar a nosotros y a quienes tengamos al rededor (maximo 9, incluyendose), dependiendo de nuestros atributos en Liderazgo y nuestros atributos de Carisma e Inteligencia (punto de teletransporte si ambos son iguales o mayores a 18).
+L = 0, sin punto, teletrasporta: 0
+L = 0, punto, teletrasporta: 1
+L >= 10, sin punto, teletrasporta: 1
+L >= 10, punto, teletrasporta: 2
+L >= 20, sin punto, teletrasporta: 2
+L >= 20, punto, teletrasporta: 3
+L >= 30, sin punto, teletrasporta: 3
+L >= 30, punto, teletrasporta: 4
+L >= 40, sin punto, teletrasporta: 4
+L >= 40, punto, teletrasporta: 5
+L >= 50, sin punto, teletrasporta: 5
+L >= 50, punto, teletrasporta: 6
+L >= 60, sin punto, teletrasporta: 6
+L >= 60, punto, teletrasporta: 7
+L >= 70, sin punto, teletrasporta: 7
+L >= 70, punto, teletrasporta: 8
+L >= 80, sin punto, teletrasporta: 8
+L >= 80, punto, teletrasporta: 9 (MAX)
+L >= 90, sin punto, teletrasporta: 9 (MAX)
+Modo de Uso: El objeto debe estar equipado... se lo selecciona, se presiona "U" para usarlo... aparece una ventana en donde debemos ordenar tres simbolos (que se pueden ordenar con el teclado), estos 3 simbolos, son claves de teletrasporte... generan un sonido particular... en esta ventana tambien indicaremos que vamos a teletransportar a todos los cercanos a nosotros... les aparecera un mensaje en la consola, deben poner /si, para confirmar, una vez que todos hayan respuesto, serán teletrasportados, ademas tienen 5 seg para responder, y aunque todos respondan antes, igualmente se esperaran esos 5 segundos. En el caso que solo queramos teletrasportarnos nosotros si es un mapa inseguro, habrá que esperar 3 segundos para concentarse. Todas las clases y razas la pueden utilizar. Habrá personajes escondidos a lo largo del juego que nos iran enseñando combinaciones diferentes para la ocarina. La misma NO SE PUEDE UTILIZAR bajo techo, cuevas y dungeons. Y los puntos de llegada serán determinados de manera aleatoria, pero nunca el destino será un mapa seguro, siempre o en las afueras de una ciudad, o en un determinado mapa.
+Habrá combinaciones azarosas que nos podrían dejar varado en cualquier mapa al azar.
+Despues de utilizarla se resta la energia del usuario a la mitad, es decir que si tenes un max de 100, restará 50... de lo contrario fallará y nos podría dejar en el mapa de al lado sin nada de energía.
+
+* Cofres... son objetos que no se pueden agarrar, se puede configurar los objetos que salgan y su nivel de azar. Para abrirlo, debemos acercarnos, a no mas de 2 pasos, y hacer doble click sobre él. Entonces nos dirá en la consola, algo como "El cofre contenia ....", que quedará tirado frente al cofre abierto, no abriendose si el lugar no esta libre para tirarlo. Una vez abierto, el cofre se quedará abierto por 1 hora... y luego se reiniciará el sistema.
+
+* Casas de alquiler...
+
+* Casas amuebladas: Estaría muy bueno que las casas estuvieran amuebladas, es decir, con una cama y una biblioteca... despues puedo crear algun sistema de juego especial para estos objetos... por ejemplo, si haces doble click en la cama, dormis y te curas toda la vida... o si haces doble click en la biblioteca "estudias" y podes subir algun skill random, etc... funciones que solo pueden usar desde dentro de la casa. Luego podrían haber casas sueltas en algunos mapas, con llave, y un NPC en una ciudad lejana que te venda las llaves, entonces, si tenes la llave podes curarte en esa casa ^^ ROL, mucho ROL ^^
+
+* Boomean, es un arma de corto alcance, aprox. 10 posiciones, que daña 2/3 de lo que una flecha, y se puede utilizar infinitas veces. Tiene plus de daño si el usuario es cazador o guerrero. Y si tambien si la victima es de raza elfica (tanto claros como oscuros).
+
+* Bombas, se pueden comprar y contruir bombas, que son objetos que una tirados en el suelo comienzan a hacer una cuenta regresiva de 5 seg, una vez llegado al tiempo, la bomba explota, bañando considerablemente a los mas cercanos, afectando hasta 10 posiciones (5 por lado). Las clases magicas solo pueden transportar 1 de estas bombas. Puede afectar al propio dueño. Una vez tirada, no se puede detener! Tambien dañan a NPC's x2.
+
+* Hechizos de teletransporte que nos dejan en la cercania de las ciudades, podemos usarlo sobre nosotros o sobre otros usuarios, si tenemos más de 30 en magia, podemos llevar hasta 3 usuarios a la vez (centro, arriba y abajo), con más de 70, podemos llevar a hasta 5 (centro, arriba, abajo, der e izq). Cuantos más sean, más mana consumirá, dependiendo del nivel de los transportados. Los enanos son inmunes al teletransporte, no pueden estar a menos de 15 pasos del teletransporte o fallará. El teletransporte tampoco tiene efecto en cuevas o cabernas, necesitan estar al aire libre. Es posible comprar una "loción de enano", por 500 oros, con efecto de 30 minutos, que permite deshabilitar los teletransportes en nuestras cercanias. O un anillo especial, mucho más caro (15750 oros) con efecto permanente. Para teletransportarse toma 4 segundos en concentrarse cuando el mapa esta poblado, si el mapa es descierto, es inmediato. No afecta a NPC's.
+
+* Habilidad de montar... existirán NPC's libres, que una vez domados permitiran ser montados y utilizados como transporte ya que avanzaran más veloz mente que caminando. Ademas, estas velocidades serán permitidas aleatoriamente entre lso NPC's. (REQUIERE ALGUN SISTEMA PARA GUARDAR NUESTRO TRANSPORTE Y USARLO CUANDO QUERAMOS)
+Idea: Un comando estilo /soltar, que dejará al NPC domado, libre hasta que lo necesitemos... el NPC's desaparecerá de la pantalla cuando lo hagamos. Pero cuando pongamos /llamar, aparecera nuestro NPC al lado del personaje, listo para ser montado. Solo podemos tener 1 NPC's montable domado a la vez.
+MODO CARABANA: Será un modo con determinados NPC de tranporte, que tendran capacidad para llevar a más de 1 PJ, hasta 5 incluido el maestro... el conductor de la moscota será el maestro y el dirigira por donde iran... los PJs dentro de la carabana, no pueden utilizar magias, solo flechas... en caso de ataque todos los miembros de la carabana recibinar un porcentaje del daño total recibido. La carabana tambien podrá transportar muertos. Para subir los PJ, primero debe subir el maestro de la carabana, hacer click en el PJ y poner /carabana, si el PJ quiere viajar con él, pondra /carabana y estará dentro... si desea salir, pone /bajar y saldrá de la carabana. Mientras se encuentre dentro, ni el maestro ni los PJ dentro, podran atacarse entre si.
+
+* Sistema de Cuentas Universales. Se crea una cuenta en un unico host, ej. en GS-Zone,y al iniciar el juego, tiene que poner usuario y contraseña... con este usuario y contraseña le da para elegir los servidores aderidos al sistema, y al elegirlo, finalmente le parecen los personajes creados de la cuenta en dicho servidor. Esto permite usar una misma cuenta en varios servidores.
+
+* Sistema de Mapas Globales. Carga Inteligente de Mapas.
+
+* Hechizo que crea portales temporales hacia las ciudades
+
+* Optimizar el código para que sea lo más rápido posible
+
+* Sistema de Runas y objetos Engarzados! by ^[GS]^
+- Las runas aparecerán aleatoriamente al matar cualquier NPC, en cualquier momento, en cualquier lugar, siendo las posibilidades 10/100. Siendo el máximo de 1 por hora.
+- Habrá 7 runas elementales.
+* 1 Runa de Sol
+* 2 Runa de Luna
+* 3 Runa de Fuego
+* 4 Runa de Agua
+* 5 Runa de Madera
+* 6 Runa de Metal
+* 7 Runa de Tierra
+- Combinaciones...
+* ARMAS engarzadas:
+(+MinHit +MaxHit) = Sol + Fuego + Metal
+(+MinHit) = Luna + Tierra
+(+MaxHit) = Luna + Metal
+* ARMADURAS engarzadas:
+(+MinDef +MaxDef) = Agua + Metal + Tierra
+(+MinDef) = Madera + Tierra
+(+MaxDef) = Madera + Agua
+* ESCUDOS encargados:
+(+MinDef +MaxDef) = Sol + Metal + Tierra
+(+MinDef) = Luna + Madera
+(+MaxDef) = Luna + Fuego
+* CASCOS encargados:
+(+MinDef +MaxDef) = Fuego + Metal + Tierra
+(+MinDef) = Sol + Madera
+(+MaxDef) = Sol + Agua
+* FLECHAS encargadas:
+(+MinHit +MaxHit) = Madera
+(+MinHit) = Tierra
+(+MaxHit) = Fuego
+- El aumento es del 20%. Si se agregan 2 de Fuego, en cualquiera de las combinaciones se consigue un 5% más.
+- Las runas tienen un valor de 100 monedas de oro a la venta en los NPCs.
+- El objeto puede ser vendido por el doble de su valor a un NPC, pero ningún NPC venderá engarzados o runas.
+- Los objetos engarzados, se quedan engarzados aun si el usuario muere y cae al suelo y otro usuario lo toma.
+- Una vez engarzado el objeto, no puede volver a engarzarse.
+- Los objetos engarzados pueden ser "destruidos" con un NPC especial, que recupera aleatoriamente una menos de de las runas utilizadas. Es decir, 2 de 3, y 1 de 2. El objeto base, se pierde!
+- Las runas se pueden equipar, sin "aplicar" al objeto, permitiendo habilidades diferentes según las siguientes combinaciones:
+* Sol + Luna + Fuego + Agua + Madera + Metal + Tierra = 5% más en todos los elementos, cascos, armas, armaduras, flechas y escudos.
+* Sol + Luna + Fuego + Agua + Madera + Metal = 2% más en todos los elementos, cascos, armas, armaduras, flechas y escudos.
+* Sol + Fuego = 2% más de hit.
+* Sol + Madera = 3% más de daño con flechas.
+* Sol + Luna = 1 espacio más de rango de ataque en armas de mano.
+* Sol(+10) + Luna(+10) = 2 espacio más de rango de ataque en armas de mano.
+* Sol + Madera + Luna = 10% más de daño con Wrestling.
+* Sol + Metal + Luna = 10% más de daño estando en Barco.
+* Luna + Fuego = 5% más de mana.
+* Luna + Madera = 2% más de mana.
+* Luna + Metal = 5% más tiempo oculto.
+* Luna + Tierra = 5% más tiempo invisible.
+* Metal + Fuego = 5% más de defensa.
+* Metal + Agua = 2% más de defensa.
+* Fuego + Agua = 5% más oportunidades de golpe critico.
+* Fuego + Madera = 5% más oportunidades de apuñalar.
+* Tierra + Madera = 10% más oportunidades de obtener leñas.
+* Tierra + Metal = 10% más oportunidades de obtener metales.
+* Tierra + Agua = 10% más oportunidades de pescar.
+* Sol(+2) = 10% más oportunidades de domar a la criatura.
+* Luna(+2) = 10% más supervivencia.
+* Fuego(+2) = 20% más oportunidades de encender fuego.
+* Tierra(+2) = 5% más oportunidades de obtener metales.
+* Madera(+2) = 5% más oportunidades de obtener leñas.
+* Agua(+2) = 5% más oportunidades de pescar.
+* Metal(+2) = 20% más oportunidades de rechazar el ataque.
+* Sol = El NPC's más cercano a nosotros se mueve el doble de lento.
+* Luna = 20% menos daño por envenenamiento.
+* Fuego = 20% más de daño físico a los NPC's.
+* Tierra = 10% más tiempo de inmovilización a NPC's.
+* Madera = Los NPC's con menos de 2K de vída dejan un 10% más de experiencia.
+* Agua = 20% más de daño mágico a los NPC's.
+* Metal = Los NPC's dejan un 10% más de oro.
+
+CLIENTE
+-------------------------------------
+* Negociación con NPc libre de teclado
+* Nuevo Sonido de caminar sobre pasto
+
+SERVIDOR
+-------------------------------------
+* Comando /STAFF para ver el listado de nombres que conforman el staff de Administradores del juego.
+* Inteligencia Artificial de NPCs con minimo consumo de CPU
+* Comandos de Ayuda a la Administración
+  - Buscar numero de Objeto Ej. "/BOBJ espada"
+  - Buscar numero de NPC Ej. "/BNPC serpiente"
+  - Buscar usuarios por nombre Ej. "/BPJ pedri"
+  - Ver el numero del último NPC/Objeto clickeado Ej. "/BC"
+  - Obtener IP y E-mail de un usuario Ej. "/IPJ pedrito" (solo nombre exacto)
+* Datos...
+//[DADOS]
+// El primer numero es el minimo
+// El segundo numero es la base para el random (+-5)
+//Fuerza=15-13
+//Agilidad=15-12
+//Inteligencia=16-13
+//Carisma=15-12
+//Constitución=16-16
+
+
+
+
+//////////////////////////////////////////////////////
+IDEAS DE Stheal (http://www.gs-zone.org/stheal_u16V.html):
+
+Mostrar Users en render como el aporte de khalem para los usuarios de la misma party
+Sistema de Quest (Nivel Min/Max para quest, Cant de Items, Nro de Item(puede qe se tenga que buscar mas de 1 item entonces seria x ej "QueItem1" "QueItem2", Usuarios a matar, NPC a Matar, Faccion para quest, Si tiene qe estar enlistado para usar la quest, si tiene que hacer alguna otra quest antes, por ej QuestPrev=3 siendo 3 el numero de quest antesesora)
+Sistema de pasajes te muestra el camino que recorre.
+Pasajes que salen a cierta hora (sin necesidad de barca) sino el usuario puede usar la barca para llegar.
+Sistema de Castillos
+En los Dungeons los NPC mas poderosos(tipo pretoriano) tienen que pararse en 3 lugares diferentes. Si los 3 usuarios mueren el npc desaparece (x mas que haya mas usuarios) La gracia seria qe el npc no pueda ser paralizado y que tenga mucha vida.
+Sistema de drops x %. Por ej, Lobo tiene 10% de tirar X item qe puede servir para quest.
+Estaria bueno tambien que si hacen el sistema de quest (bien completo) los items qe sean de quest en el inventario aparescan en amarillo x ej (ya qe usan dx8) y que antes de tirarlo te pregunte o qe te diga como la barca qe te diga "ATENCION ACABAS DE TIRAR UN ITEM DE QUEST"
+Truenos durante lluvia
+Sistema de Eventos
+Captura la bandera: 2 equipos, 2 banderas en lados opuestos. TIenen que agarrar la bandera del equpo opuesto y llevarla a una posicion X (No hace falta qe la deje ahi, con qe el user se pare sobre la poss y tenga la bandera en el inventario ya pasaria la ronda) Si el usuario muere y tiene la bandera cae SOLO la bandera, los demas items no. AHORA, si un user agarra su propia bandera, vuelva a su lugar de origen (Esto seria por si intentan agarrar su propia bandera para qe los otros no la agarren o x si matan a un usuario qe tiene la bandera y se cae en el piso; al agarrarla volveria a su poss de origen) Esto seria al mejor de 3
+Blood Castle: Estilo Mu
+DeathMatch: Todos los users iguales, sin poder hablar, en caso de salir volveria a quedar en su antigua poss. Qe se caigan los items y qe 1 min o 2 antes SIEMPRE PARA TODOS LOS EVENTOS avise qe evento viene como para poder prepararse.
+Muerte Súbita :La muerte súbita consiste en una pelea entre los 2 bandos. Gana el que llega al límite de kill requerido.
+En otras palabras, son dos equipos, cada uno tiene un máximo de jugadores muertos (en este caso 20) cada ves que un usuario muere, se suma uno y a los tres (3) segundos ese usuario revive y cae en su base, cuando uno de los dos equipos llega a el máximo de muertes (20) pierde y gana el otro.
+REY VS REY:Son 2 equipos , en los cuales, cuando el evento se inicia, se elige (al azar) un rey para cada equipo, y cada jugador de cada equipo es transportado a su base, bueno y quien mata al rey primero seria el ganador, cuando morís a los 3 segundos sos revivido y transportado a tu base.
+RESISTENCIA:2 equipos, 1 equipo arranca en un cuadrado que estan encerrados, y el 2do equipo arranca afuera, cuando matan a todos los del equipo 1 , se hace la inversa y el 2do equipo va adentro y el 1 afuera, el equipo que resista más, seria el ganador,
+LA BESTIA:
+Toeno 1 vs 1
+Torneo 2 vs 2
+Escondidas: 1 mapa tipo BOSQUE. bien camuflado. Un user es elegido para encontrar a todos. se cuenta de 10 a 0 y lo deja moverse. Los users tiene qe esconderse entre todo el terreno. qe los nombres no esten visibles para qe sea mejor. El usuario pierde cuando alguno pica (Osea qe se para en la poss original donde el usuario estaba contando). ¿Como los descubre? Facil, con tan solo hacerles click, ya le apareceria el nombre nuevamente y serian transportados a la ciudad o algun mapa de espera para qe no toskeen o acorralen al qe cuenta. Si alguien pica antes, todos los qe estaban vivos ganarian "puntos de quest" por ej, o no se, items. Eso miralo vos segun el sistema qe tengas en tu server.
+EL FUERTE: Habria qe hacer 1 triger nuevo. Es algo asi como IAO battle creo. 1 fueste, 2 equipos de 10 jugadores. Seria como DM, cada vez qe mueren reviven en 5 seg en su base digamos. LOs personajes tendrian qe ir al fuerte del medio y pararse en un punto y cada seg qe pasa el % del fuerte va aumentando segun quien este parado encima. Cuantos mas hay parados mas rapido el % sube. Quien gana? el equipo qe llegue al 100% del fuerte conquistado.
+TODOS LOS EVENTOS QE SEAN AUTOMATICOS CADA 1 HORA.
+
+CLASES TRABAjaDORAS: Que haya solo 1 clase por profesion, x ej. Experto en Minerales (miner y herrero) osea qe puede ir a minar y hacer los lingotes tambien. Experto en Maderas, Telas, Alquimia, etc. (TAMBIEN se pueden hacer expertos segun quest.)
+
+SISTEMA DE FORJAR OBEJTOS/ENCHANT:
+se agrega una pestaña al panel del herrero. Cuanto mas skills tenga en suerte y herreria mayor porcentaje de exito tendra. Tambien cuanto mas alto el item a forjar menor la probabilidad de exito que tenga. El panel tiene 3 o 4 Cuadrados para ponerle los objetos (ONDA MU). 2 Obligatorios y 2 Opcionales. Los 2 opcionales serian "scoll de la suerte" x ej. Esto aumentaria el % de exito sobre el total. Los otros 2 obligatorios serian 1 para poner el item y el otro seria donde iria el enchant, piedra, runa o como quieras llamarlo. Cada una de estas piedras actuan diferente y le dan una propiedad diferente al item. Por Ej los atributo a aumentar serian: HP, Mana, Golpe, Punteria(en caso del caza), prob de apu / critico / paralizar, Resistencia Magica. La cantidad maxima de piedras qe se pueden colocar serian 3 por lo qe el item llegaria como maximo a +3. COmo se podria hacer en la programacion? (Solo una idea) habria qe agregarle a cada obejto antes qe nada EsForjable = 1/0. Con eso te ahorras un paso. Desp de eso creo qe solo habra qe modificar las propiedades ya existenes. (ES BASTANTE JODIDO EL SISTEMA EN SI, pero creo qe si logras ponerlo seria UN GOLAZO, ya qe le daria bastante ROL al servidor)
+Tambien lo que serian las monturas podrian forjarse. Osea, las monturas qe tendgas qe conseguirlas domando un npc en el mundo qe respawnee en el world save (onda TP ao). Cuando la domas es una criatura comun y orriente, ej, caballo, tigre, oso, lobo. Pero, consiguiendo X item podrias forjarla en el herrero en el sistema antes mencionado y podria pasar a "montura de lobo reforzada". TODAS las monturas reforzadas necesitarian 100 skills en domar. Ademas estaria bueno qe tengas qe alimentar a tu mascota porqe sino va mas lento. x ej tenes el hambre y sed del pj y el hambre y sed del caballo (mismo sistema pero para l masocta). Si tu caballo esta al 100% va a correr al 100% sino baja proporcionamente la velocidad de caminata, siendo qe 0% no te deje moverte y tengas qe darle de comer si o si a tu caballo para poder usarlo.
+Sistema de drp por porcentaje creo qe le vendria genial al server tambien para todas estas cosas.
+SISTEMA MERCADO CENTRAL:
+Consiste en datear a 1 NPC. Este responde a lo que seria un vendedor normal. Pero a diferencia de los demas Vendedores, este SOLO vende lo que los usuarios dejan. Es una mezcla entre subasta y NPC vendedor. Que tiene de diferente a la subasta? TODO, No es global, es decir, si yo pongo las cosas a vender en el NPC de ulla, solo se van a poder comprar en ulla y no se veran en otros NPC (por lo qe habria qe datear varios NPC creo. ademas de que te cobraria un X% en caso de que lo vendas y ese % se acumularia para lo qe seria el pozo de navidad (desp lo explico). COnsistiria en 2 pestañas. 1 donde ves normalmente al NPC vendedor y otra en la que arrastras el Item hasta el cuadradito y abajo le pones el precio al cual lo queres vender. El NPC solo lo tiene al item x 12hs y luego vuelve al inventario del Usuario. En caso de tenerlo lleno va a la bobeda, y en caso de qe tambien este llena lo tendra 12 horas mas, asi hasta qe se desocupe algun slot.
+Qe seria el pozo de navidad? Un insentivo para los usuario y un motivo de festejo para el serivor y la gente en general. Algo asi como el gordo de navidad, pero en el servidor. Mi idea era sumar lo de las subastas + lo de las apuestas + X cantidad de oro. y que cuando sea 24 a la noche, se elija al azar entre Todos los usuarios qe tengan un cupon en su inventario ya sea qe esten on u off y si salen sorteados se ganan el pozo. 
+SISTEMA DE CASAMIENTOS
+El basico qe se conoce pero con algunas caracteristicas como por ej, Mayor a Nivel 25, Diferente genero, Misma faccion (armada ciuda / caos crimi). y nada, qe no puedas atacarlo y que cuando se conecte te aparesca "tu pereja se des/conecto" Ademas de qe SOLO puedas casarte si estas en la iglesia (ya es cuestion de mapeo eso si esta en mapa x /cord X,Y)
+Que haya guerras fraccionarias.
+Probabilidad de sacar algun item raro estando minando/talando/pescando
+SISTEMA DE CLAN
+Para fundar clan se necesita minimo 2 personas (un lider y un sublider). Las condiciones basicas solo las tiene qe tener el lider, es decir, X skills en liderazgo, Mayor a Nivel X, X Oro. El sublider puede ser cualquiera. Por cada dia qe pase estaria bueno qe se sume 1 punto de liderazgo al sublider, pero esto es Out de lo qe es mi sistema XD. Siendo el lider, puede hacer lo que quiera con el clan, hasta cerrarlo. Ya si sos sublider podes hacer clan vs clan, aceptar miembros, cambiar desc, etc. eso miralo vos. Cada clan al fundarse tiene X GP (Guild Points/ Puntos de clan). Se puede  declarar guerra a los clanes de OTRA faccion. y Alianza a los clanes de Su misma Faccion.
+Los clanes constan de Niveles 1/2/3/4. Esto determina el numero Maximo de Itegrantes que un clan puede poseer. Las condiciones para ganar GP seria x ej:
+Matar miembros de clanes con los qe se esta en guerra
+Conquistar catillos
+Ganar CVC
+Como se pierden?
+Al revez qe arriba
+Perdiendo castillo
+Perdiendo cvc
+Al ser matado x un usuario del clan el cual esta en guerra. 
+Como subir de nivel? 
+X Skill en liderazgo + X Guild Points
+//////////////////////////////////////////////////////

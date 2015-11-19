@@ -1,0 +1,1 @@
+* Para ver los graficos correctamente cambiar DirMaps= por el Path en donde estan los mapas con sus correspondientes BMPs!

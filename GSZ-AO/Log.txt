@@ -1,0 +1,277 @@
+*************************************************************
+*************************************************************
+*************************************************************
+*** 							  ***
+*** 	 GGGGG	 SSSSSS	ZZZZZZZ		  AAA	 OOOOO	  ***
+*** 	GG   GG	SS	     ZZ		 AA AA	OO   OO	  ***
+*** 	G	SS	    ZZ		AA   AA	OO   OO	  ***
+*** 	G  GGGG	 SsSSS	  ZZZ	-------	AAAAAAA	OO   OO	  ***
+*** 	G    GG	     SS	 ZZ		AA   AA	OO   OO	  ***
+*** 	GG   GG	     SS	ZZ		AA   AA	OO   OO	  ***
+*** 	 GGGGG	SSSSSS	ZZZZZZZ		AA   AA	 OOOOO	  ***
+*** 							  ***
+*************************************************************
+*************************************************************
+*** 		    Log de actualizaciónes	  	  ***
+*************************************************************
+*************************************************************
+
+
+* 19/03/2011: Se arreglaron los inventarios gráficos (de comercio y bóveda), y la parte gráfica del CrearPJ. (TwIsT)
+* 19/03/2011: Agregué fonts renderizadas, cargadas desde un gráfico. (TwIsT)
+* 19/03/2011: Reemplacé todos los mensajes de consola ("estáticos") por un enum de mensajes. (TwIsT)
+* 20/03/2011: Carga de mapas con la nueva clase cslBytebuffer (sacada de Alkon). (TwIsT)
+* 21/03/2011: Reparé el bug que no permitía ver la boveda. (TwIsT)
+* 24/03/2011: Guardado de PJs con la clsIniManager extraida de Alkon. (TwIsT)
+* 24/03/2011: Agregado sistema de Dia/Noche (manejado por el cliente). (TwIsT)
+* 25/05/2011: Carga de texturas sin la molesta potencia de 2 en la medida. (Dunkan)
+* 10/06/2011: Ahora el servidor utiliza servidor.ini en lugar de server.ini. (^[GS]^)
+* 11/06/2011: Passwords de usuarios con MD5. (^[GS]^)
+* 14/06/2011: Sistema de Dia/Noche deshabilitable desde servidor.ini. (^[GS]^)
+* 14/06/2011: Renovación total de la apariencia del servidor. (^[GS]^)
+* 15/06/2011: Mejorado el rendimiento en el cliente, ahora con más FPS. (^[GS]^)
+* 18/06/2011: Ahora el cliente utiliza la GUI desde una carpeta diferente. (^[GS]^)
+* 18/06/2011: Se optimizaron todas las llamadas al directorio gráficos en el cliente. (^[GS]^)
+* 19/06/2011: Implementado el comando /ADMIN para que los administradores puedan agregar, quitar y listar los cargos de Dioses, Semidioses, Consejeros y Rolesmasters desde el juego. (^[GS]^)
+* 19/06/2011: Ahora podemos modificar los multiplicadores de Experiencia y Oro desde Servidor.ini ademas del Nivel Máximo. (^[GS]^)
+* 20/06/2011: Se mejoro el compresor/descompresor de Graficos.AO. (^[GS]^)
+* 26/06/2011: Fps libres y cambiada la forma de calcularlos. (Dunkan)
+* 26/06/2011: Calcula la velocidad de los grhs desde la variable movSpeed. (Dunkan)
+* 26/06/2011: Dinamismo en el inventario para que consuma del motor gráfico (Ahorramos Fps). (Dunkan)
+* 26/06/2011: Cambios en la carga del directX para poder añadirle alpha a las texturas. (Dunkan)
+* 26/06/2011: Los textos ahora aparecen lentamente. (Dunkan)
+* 26/06/2011: Arreglos en el inventario para hacer un efecto de "iluminación". (Dunkan)
+* 27/06/2011: ¿Por qué dibujaba las capas 1 y 2 en dos bucles separados no? jaja, layers 1 y 2 en el mismo bucle. (Dunkan)(cof cof te lo dije en tu ao)
+* 28/06/2011: Implementadas luces cuadradas en los mapas. (Dunkan)
+* 28/06/2011: Arreglado el alpha, bordes y transparencia de las FX's. (Dunkan)
+* 29/06/2011: Luces redondas también funcionando. (Dunkan)
+* 29/06/2011: Añadido un efecto de "degradé" a la fuente. (Dunkan)
+* 30/06/2011: Sistema de lluvia con partículas utilizando ecuaciones. (Dunkan)
+* 03/07/2011: Inventario para los hechizos, no mas lista. (Dunkan)
+* 09/07/2011: Drag & Drop en el inventario. (Dunkan)
+* 14/07/2011: Saque las funciones que ni siquiera eran llamadas:   (Fedudok)
+    TCPServ_NuevaConn
+    TCPServ_Read
+    TCPServ_Eror
+    TCPServ_Close
+    InicializaEstadisticas
+    ActualizaEstadisticasWeb
+    WSAMakeSelectReply
+    kSendData
+    IrcGetLongIp
+    GetLongIp
+    IrcGetAscIp
+    IpToAddr
+    GetSockAddress
+    GetServiceByName
+    GetProtocolByName
+    GetPortFromString
+    GetPeerAddress
+    GetLocalHostName
+    GetHostByAddress
+    ConnectSock
+    SetSockLinger
+    AddrToIP
+    WSAGetAsyncError
+    WSAGetAsyncBufLen
+    ws_select
+    CondicionSocket
+* 14/07/2011: Cambio de iniMaxUsuarios por lastuser en GameTimer (Fedudok)
+* 14/07/2011: Nuevo sistema de partículas en los mapas. (Dunkan)
+* 19/07/2011: Se saco el clsEstadisticasIPC.cls y todos los llamados a ella (Fedudok)
+* 19/07/2011: Se saco el CSolicitud.cls (Fedudok)
+* 21/07/2011: Agregue carpeta guilds para que guarde clanes, sino no funcionaba (Fedudok)
+* 21/07/2011: Hice tablas en sql desde 0 para la base de datos de version AO 0.13 ("GsMysql.txt") (Fedudok)
+* 21/07/2011: Agregue un modulo llamado mysql donde allí se guardan funciones con conexion a la Db (Fedudok)
+* 26/07/2011: Se realización pequeñas optimizaciones en el código del cliente y servidor. (^[GS]^)
+* 26/09/2011: Corrección en el cargado de mapas del servidor y pequeñas correcciones en el cliente. (^[GS]^)
+* 28/09/2011: Los Semidioses, Dioses y demás administrativos pueden utilizar todos los objetos, incluso si son para otro genero, raza o facción. (^[GS]^)
+* 05/10/2011: Sistema de luces opcional en el cliente mediante servidor.ini. (^[GS]^)
+* 07/10/2011: Inicio de la actualización de las funciones del servidor a v0.13.3. (^[GS]^)
+* 15/10/2011: Finalización de la actualización de las funciones del servidor a v0.13.3. (^[GS]^)
+* 05/11/2011: Se inicio la actualización de las funciones del cliente a v0.13.3. (^[GS]^)
+* 23/11/2011: Se termino la actualización de las funciones del cliente a v0.13.3 y se completaron, el cliente y servidor con los gráficos, dateos y sonidos de la 0.13.3 que faltaban (^[GS]^)
+* 05/12/2011: Sistema de Pasajes. Objtype = 39 (^[GS]^)
+* 06/01/2012: Ahora desde el servidor se puede configurar si los nombres en el cliente estarán siempre visibles o solo cuando se pasa el mouse sobre ellos. (^[GS]^)
+* 11/03/2012: El cliente por fin compila, se corrigieron todos los detalles que había quedado pendientes hace meses. (^[GS]^)
+* 11/03/2012: El cliente vuelve a utilizar sinfo.dat que estaba deshabilitado. (^[GS]^)
+* 11/03/2012: Se agrega un aviso para evitar el error de conexión en localhost. (^[GS]^)
+* 11/03/2012: Se convierten al nuevo formato de indices los Cuerpos, Fxs, Cabezas, Cascos (que estaban en formato 0.9.9z). (^[GS]^)
+* 11/03/2012: Se cambian los nombre de varios indices para volverlos mas identificables. (^[GS]^)
+    FK.ind => Lluvia.ind
+    FXS.ind => Efectos.ind
+    Personajes.ind => Cuerpos.ind
+* 11/03/2012: El cliente ahora soporta totalmente gráficos del nuevo formato, tanto Cuerpos, Fxs, Cabezas y Cascos que no podían utilizar Grh >32k. (^[GS]^)
+* 12/03/2012: Se realizaron correcciones varias en Servidor y Cliente. (^[GS]^)
+* 12/03/2012: Ahora el hay emoticones in-game, para :) :( :@ :D ^^ :S xD. (^[GS]^)
+* 13/03/2012: Se inicio la función de autocompletar comandos en el cliente y se corrigieron varios errores. (^[GS]^)
+* 16/03/2012: Ahora los NPC's pueden llevar una animación de Armadura, Casco o Arma. (^[GS]^)
+* 16/03/2012: El máximo de DROPS fue subido a 10 por NPC's. (^[GS]^)
+* 16/03/2012: Ahora los NPC's pueden equiparse una Armadura, Casco o Arma de los objetos que tienen en Drop. (^[GS]^)
+    NOTA: Los equipos únicamente se muestran si el NPC's tiene un Head (Cabeza) distinto de 0.
+* 16/03/2012: Ahora los Newbies tienen un color de nick propio, configurable en Colores.dat del cliente. (^[GS]^)
+* 17/03/2012: Se implemento y adapto el Sistema de Daño aportado por maTih.-. (^[GS]^)
+* 20/03/2012: La consola del cliente ahora es transparente. (^[GS]^)
+* 24/03/2012: Mejorado el Drag & Drop de inventario y el inventario de Hechizos. (^[GS]^)
+* 26/03/2012: Se ha probado con una nueva interface de menu principal hecha por Hipnosis. (^[GS]^)
+* 26/03/2012: Ahora los NPC's pueden llevar Armadura, Casco o Arma, de los objetos que tienen en el inventario de ventas (como ya lo hacían con los drops). (^[GS]^)
+* 01/04/2012: Saqué el moveType del drag&drop ya que nunca se usa. (maTih.-)
+* 01/04/2012: Implementé el nuevo sistema de drop de objetos con el mouse, faltan unos retoques (maTih.-)
+* 02/04/2012: Eliminé el paquete RightClick que no se usaba y cerraba la conexión al apretar el boton derecho del mouse en el render. (maTih.-)
+* 02/04/2012: Eliminé la actualización de los labeles "Escuch" y "Record" en el timer auditoria, y puse las llamadas donde en verdad van. (maTih.-)
+* 02/04/2012: Eliminé el sistema "de noche" que está desde el 2006 y nunca se usó. (maTih.-)
+* 02/04/2012: Eliminé el paquete ShowMenu que no se usaba y tampoco estaba codeado desde el servidor. (maTih.-)
+* 06/04/2012: Reparados algunos problemas menores, el cliente y servidor ahora conectan nuevamente. (^[GS]^)
+* 07/04/2012: Ahora los Guardias Armada/Caos, vuelven caminando a sus posiciones si tienen el Movement=5 y son NpcType=2 o 8. (^[GS]^)
+* 07/04/2012: Implementado el sistema de "Meditar rápido", configurable desde Servidor.ini > OPCIONES > MeditarRapido=1 ó 0, respectivamente. (maTih.-)
+* 08/04/2012: Nueva interface de Cargando en el Cliente mucho más vistosa. (^[GS]^)
+* 09/04/2012: Nuevo paquete "CreateParticleInChar", crea partícula en charIndexs, para la meditación y/o hechizos con vbGore. (maTih.-)
+* 19/04/2012: Creación de la herramientas de configuración de directorios del cliente (y otras cositas). (^[GS]^)
+* 19/04/2012: Cambiada la estructura de directorios del cliente. (^[GS]^)
+* 19/04/2012: Ahora el cliente puede guardar el nombre y password del ultimo usuario, y almacenarlo de manera segura. (^[GS]^)
+* 19/05/2012: Ahora los NPCs que tienen "ShowName=1" muestran su nombre en el juego. (^[GS]^)
+* 19/05/2012: También podemos forzar para que TODOS los NPC Hostiles (o No) muestren su nombre, sin necesidad de la variable ShowName, en [OPCIONES] de "Servidor.ini" (NPCNoHostilesConNombre=1 y NPCHostilesConNombre=1). (^[GS]^)
+* 26/05/2012: Ahora podemos deshabilitar los Logs de Desarrollo y ahorrar procesos, en Servidor.ini => [SEGURIDAD] => LogDesarrollo=0. (^[GS]^)
+* 30/05/2012: Mejora en el comando /Online que ahora gasta menos ancho de banda y puede ser utilizado de manera mas eficiente. (^[GS]^)
+* 31/05/2012: Agregada la protección de memoria para intervalos, según aporte de "EL VILLA" en GS-Zone. (^[GS]^) [REMOVIDO EL 24/09/2012]
+* 31/05/2012: Mejorada la estructura de archivos de código fuente en el cliente. (^[GS]^)
+* 31/05/2012: Ahora con el /TELEP podemos transportar usuarios que se encuentren offline. (^[GS]^)
+* 31/05/2012: Ahora al pasar el mouse sobre nuestro personaje nos muestra la barra de vida, según el aporte de "Azhiralh" en GS-Zone. (^[GS]^)
+* 08/06/2012: Ahora el servidor utiliza la información de WWW de la configuración en Servidor.ini para dirigir a los usuarios com problemas. (^[GS]^)
+* 08/06/2012: Nuevas funciones para trabajar con el Serial del HD, comandos /BANHD USUARIO, /UNBANHD SERIALHD y /VERHD USUARIO. (^[GS]^)
+* 09/06/2012: Cuando juntamos oro del suelo nos muestra "+CANT" en el Render. (^[GS]^)
+* 10/06/2012: Mejorada la seguridad Anti-Macros simples, basado en los aportes de maTih.- en GS-Zone. (^[GS]^)
+* 10/06/2012: La lista de servidores ahora puede ser cargada de 3 formas configurables, modificandolo en modDeclaraciones del Cliente. (^[GS]^)
+    ObtenerIP:
+        0 = Utiliza Sinfo.dat (MODO ORIGINAL)
+        1 = Utiliza una fuente "fija", configurada en modGeneral, editando la función "CargarServidores()".
+        2 = Utiliza una fuente obtenida de internet, configurada en modGeneral, editando función "CargarServidores()".
+* 11/06/2012: Optimizaciones varias. (^[GS]^)
+* 12/06/2012: Primeras pruebas para conseguir Invisibilidad con transparencia Alpha. (^[GS]^)
+* 13/06/2012: Correcciones en menú de Teclas Personalizadas. (^[GS]^)
+* 15/06/2012: Mejorado el refresco del inventario gráfico. (^[GS]^)
+* 30/06/2012: Reparado el sistema de Comercio con NPC. (^[GS]^)
+* 30/06/2012: Agregados dos colores para cuando se hace click sobre objetos/oro en el suelo. (^[GS]^)
+* 30/06/2012: Mejoras en la interface de Comercio con NPC. (^[GS]^)
+* 30/06/2012: Reparada y mejorada la Invisibilidad con transparencia Alpha. (^[GS]^)
+* 30/06/2012: Reparado error que provocaba un corrimiento de los inventarios gráficos. (^[GS]^)
+* 30/06/2012: Agregado el movimiento del arma cuando el personaje ataca. (^[GS]^)
+* 01/07/2012: Los mensajes privados son también enviados por consola. Configurable en [OPCIONES] de Servidor.ini (PrivadoPorConsola=1). (^[GS]^)
+* 01/07/2012: Nueva mejora al diseño del servidor. (^[GS]^)
+* 03/07/2012: Al morir el nombre del personaje se hace gris. (^[GS]^)
+* 03/07/2012: La billetera de monedas de oro es configurable en Servidor.ini, [BALANCE] Billetera=100000. (^[GS]^)
+* 03/07/2012: Se permite determinar si la Billetera es segura o no, en Servidor.ini, [BALANCE] BilleteraSegura=1. (^[GS]^)
+* 06/07/2012: Deshabilitado el paquete "CreateParticleInChar", las meditaciones vuelven a ser FX y no Partículas. (^[GS]^)
+* 06/07/2012: Los niveles de meditación ahora son configurables, en Servidor.ini => [MEDITAR]. (^[GS]^)
+* 06/07/2012: Nuevo botón de Créditos, con scroll y música, en el cliente. (^[GS]^)
+* 08/07/2012: Se amplio la variedad de caracteres permitidos para el /DESC. (^[GS]^)
+* 08/07/2012: Al clickear un NPC nos dice sus datos en rojo, si es hostil, o en verde, si no es hostil. (^[GS]^)
+* 08/07/2012: La información sobre la salud del NPC ahora usa un único lenguaje. (^[GS]^)
+    <5% = Agonizando
+    <10 = Casi muerto
+    <25% = Muy malherido
+    <50% = Malherido
+    <75% = Herido
+    <100% = Levemente herido
+    =100% = Intacto
+    ?% = Dudoso
+    NOTA: No existe mas el estatus de "Sano".
+* 09/07/2012: Se agrego la carga de gráficos diferenciados por Hechizo. (^[GS]^)
+* 09/07/2012: Los inventarios de objetos y hechizos se ampliaron para tener una capacidad máxima de 30 elementos. (^[GS]^)
+* 09/07/2012: Al clickear un GM nos dice el rango y lo muestra con un color diferente. (^[GS]^)
+* 11/07/2012: Nuevo diseño de inventarios con fondo. (^[GS]^)
+* 11/07/2012: Se hizo mas claro el rojo del inventario. (TwIsT)
+* 12/07/2012: Correcciones en la muestra de Grh de Hechizos. (^[GS]^)
+* 13/07/2012: Ahora los textos tienen suavizado al desaparecer. (^[GS]^)
+* 13/07/2012: El cliente ya no utiliza ni requiere más las librerías MSWINSCK.OCX y MSVBVM50.DLL. (^[GS]^)
+* 17/07/2012: Ahora se los Mapas se encuentran comprimidos en Mapas.AO, y todos los recursos comprimidos (Gráficos y Mapas) soportan protección por contraseña. (^[GS]^)
+* 24/07/2012: Nuevo cursor que cambia si estamos apuntando a un Usuario, a un NPC amistoso, a otro hostil o a un Objeto en el suelo. (^[GS]^)
+* 24/07/2012: Todos los gráficos son leídos directamente desde la memoria sin generar archivos temporales. (^[GS]^)
+* 26/07/2012: Correcciones varias al sistema de cursores. (^[GS]^)
+* 27/07/2012: Cliente actualizado a la versión oficial 0.13.5. Nuevos comandos /DMSG y /ACLAN. (^[GS]^)
+* 27/07/2012: Servidor actualizado a la versión oficial 0.13.5. Nuevos intervalos y opciones de objetos. (^[GS]^)
+* 29/07/2012: El cliente ahora funciona con el nuevo AOSetup, con opciones de Vertex, VSync y etc. (^[GS]^)
+* 29/07/2012: Ahora es posible multiplicar los peces, minerales y maderos desde [BALANCE] en Servidor.ini. (^[GS]^)
+* 29/07/2012: En servidor.ini es ahora posible configurar el nivel mínimo y los skills mínimos para fundar clan, en [CLANES]. (^[GS]^)
+* 29/07/2012: Nuevas opciones para que el Sacerdote cure veneno ademas de vida, y funcionar de manera automática. Actualizable mediante Servidor.ini [OPCIONES]. (^[GS]^)
+* 30/07/2012: Indexadas todas las imágenes de los hechizos realizados por Lazarith y Cyrus. (^[GS]^)
+* 01/08/2012: Nuevos Guardias Especiales, sin facción, que atacan a jugadores con determinados niveles. NPCType=12, con AttackLvlMore= se configura para que ataque a los que tengan más de cierto nivel y con AttackLvlLess= para que ataque a los de menos. Ambas opciones se pueden utilizar en simultaneo. Estos NPC's especiales se remueven la inmovilización/parálisis 5 veces más rapido que los otros, ademas restaura toda su vida en cuanto ha pasado la amenaza. (^[GS]^)
+* 01/08/2012: Los dados son ahora configurables desde servidor.ini en la etiqueta [DADOS]. (^[GS]^)
+* 02/08/2012: Nuevo sistema de Captcha a la hora de registrar un nuevo personaje. Así evitamos bots de registro. (^[GS]^)
+* 02/08/2012: Comando /BUSCAROBJ y /BUSCARNPC, para los SemiDioses para arriba... para buscar los números de los Objetos o NPC. (^[GS]^)
+* 06/08/2012: Agregue un intervalo en el comando /PING para evitar el uso de macros inescrupulosos que pudieran utilizarlo para laguear el servidor. (^[GS]^)
+* 08/08/2012: Reparado bug en la Bóveda. (^[GS]^)
+* 11/08/2012: Ahora los techos se hacen transparente poco a poco al ponernos bajo techo. (^[GS]^)
+* 25/08/2012: Nueva opción en Servidor.ini que nos permite configurar si se necesitará algún objeto especial para fundar clan y su cantidad. Uso: RequiereOBJ=NUMOBJ-CANT. (^[GS]^)
+* 25/08/2012: Nuevas barras de progreso y estadística más dinámicas y fáciles de utilizar en el cliente. (^[GS]^)
+* 30/08/2012: Ahora podemos Ejecutar y Detener el Servidor en VB6 infinitas veces sin que se fallen los Sockets. (^[GS]^)
+* 05/09/2012: La carga de mapas en el cliente es totalmente en memoria, sin generar archivos temporales. (^[GS]^)
+* 05/09/2012: Limpieza de Mapas inteligente en el servidor. (^[GS]^)
+* 07/09/2012: Ahora las ciudades son fácilmente configurables mediante Ciudades.dat en el Servidor. (^[GS]^)
+* 08/09/2012: El servidor carga y utiliza el mapa del mundo (Grid) automáticamente. (^[GS]^)
+* 08/09/2012: Cliente con MiniMap funcionando. (^[GS]^)
+* 09/09/2012: Se optimizo el servidor para no generar logs innecesarios y también no intentar cargar mapas inexistentes. (^[GS]^)
+* 09/09/2012: Optimizada la carga del MiniMap y recursos en el cliente. (^[GS]^)
+* 13/09/2012: Corregido el error en la capa 2 que no se mostraba correctamente en el cliente. (^[GS]^)
+* 14/09/2012: El proyecto completamente comienza a utilizar gráficos en formato PNG de modo masivo. (Configurable en el Cliente vía Código en Declaraciones, las demás herramientas permiten configurarlo mediante interface o .ini de configuración, según sea el caso) (^[GS]^)
+* 07/10/2012: Nuevo control de intervalos de lado del servidor. (^[GS]^)
+* 09/10/2012: Debido a algunas incompatibilidades con el uso de graficos en formato PNG, se convirtieron todas las herramientas para funcionamiento dual con BMP en simultaneo para así poder funcionar correctamente en todos los requerimientos. (^[GS]^)
+* 09/10/2012: Se reparo el Drag & Drop del inventario. (^[GS]^)
+* 19/10/2012: Mejora en el sistema de Lluvia para que no se active la animación cuando no hay. (^[GS]^)
+* 20/10/2012: Se agrego la opción para habilitar o deshabilitar el uso de cursores personalizados en el cliente desde AOSetup. (^[GS]^)
+* 30/10/2012: Corregido bug con los pasos y mejora al crear PJ sin asignar skills. (^[GS]^)
+* 04/11/2012: Corregido el bug que repetía el "Posición inválida" en el drag&drop (Standelf)
+* 04/11/2012: Corregido el bug que dejaba tirar items en posiciones inaccesibles para los usuarios (Standelf)
+* 10/11/2012: Se corrigieron varios errores en el drag&drop. (^[GS]^)
+* 10/11/2012: Ahora es posible configurar la distancia máxima para tirar un objeto con el drag&drop. En Servidor.ini [OPCIONES] DragDrop=1 (^[GS]^)
+* 03/12/2012: Correcciones menores en la lectura de intervalos del servidor. (^[GS]^)
+* 03/12/2012: Se añadió un nuevo efecto con los botones del menú principal del Cliente. (^[GS]^)
+* 10/12/2012: Las texturas del efecto lluvia y el "foco experimental" se cargan una sola vez. (Standelf)
+* 10/12/2012: Se renderiza una imágen en la muerte de un personaje, esta se desvanece lentamente. (Standelf)
+* 27/12/2012: Nuevos Objetos Destruibles, Tipo 40. Permiten bloquear caminos y deben ser destruidos para poder continuar. Totalmente Funcionales. (^[GS]^)
+* 10/02/2013: Implementado el Mod_Fade, para el manejo de efectos fade o timers (solo su implementación, me queda pendiente ponerlo en escena ^^). (Standelf)
+* 10/02/2013: Hice una corrección para centrar el nombre y el clan de los Chars. (Standelf)
+* 10/02/2013: Solucione el bug que hacia NO renderizar el fondo del primer slot si estaba vació. (Standelf)
+* 05/03/2013: Se realizo una mejora en el modo detallado de la vista del MiniMapa. (^[GS]^)
+* 08/03/2013: Ahora es posible crear Hechizos que sean exclusivamente para una Clase o Raza determinada, usando los parametros ExclusivoClase= y ExclusivoRaza= en las propiedades del hechizo. Si el hechizo fue aprendido antes de esta clausula será automáticamente eliminado del listado de hechizos del personaje a menos que sea GM. Estos lo podrán utilizar igual. Las clases y razas deben indicarse con sus valores numéricos correspondientes por eClass y eRaza en el servidor. (^[GS]^)
+* 18/03/2013: Se agrego el botón para modificar las Opciones del juego directamente en la pantalla antes de conectar. (^[GS]^)
+* 18/03/2013: Se comenzo el sistema de Casamiento/Matrimonio. (^[GS]^)
+* 19/03/2013: Ahora cuando hay lluvia, podemos usar el Odre con los arboles para conseguir agua y ademas podríamos subir supervivencia. (^[GS]^)
+* 29/03/2013: Cuando un NPC mata a un usuario, dependiendo del nivel del usuario muerto, le sube defensa y ataque al NPC. (^[GS]^)
+* 31/03/2013: Ahora los escudos y armaduras pueden tener Defensa Mágica (DefensaMagicaMin y DefensaMagicaMax). Basado en un aporte GIANCITOH. (^[GS]^)
+* 31/03/2013: Agregado el comando /lluviadeoro, solo para SemiDioses en adelante, que permite realizar lluvias de oro aleatoriamente por el mundo. Basado en un aporte de Luuq. (^[GS]^)
+* 10/04/2013: Corrección en la aplicación de efectos de luz en el cliente, diferenciados para el inventario. (^[GS]^)
+* 13/04/2013: Corrección de errores en los sistemas de comercio. Varias mejoras estéticas en el cliente. (^[GS]^)
+* 30/04/2013: Nueva función en Hechizos.dat del servidor, que permite configurar requisitos de objetos en el inventario al momento de lanzar un hechizo. (Ejemplo: ReqObjNum=1 ReqObj1=697-1-0, en donde se pueden declarar varios items en simultaneo, exigir que estén equipados o que se consuman al momento de acertar el objetivo) (^[GS]^)
+* 30/04/2013: Nueva función en Obj.dat del servidor, que permite configurar un tiempo de respawn de los objetos. (Se configura agregando Respawn=10, minutos para respawn el objeto) (^[GS]^)
+* 02/05/2013: Reparado bug con el inventario y el drag&drop de objetos. (^[GS]^)
+* 07/05/2013: Nueva ventana al intentar salir del cliente de juego, que nos pregunta si deseamos regresar a la pantalla de inicio y salir del juego. (^[GS]^)
+* 08/05/2013: Se hicieron cambios en el sistema de hechizos con objetos requeridos, creando una nueva función interna para hacerlo mas optimo. (^[GS]^)
+* 08/05/2013: Se hicieron grandes avances en el sistema de Casamiento/Matrimonio. (^[GS]^)
+* 09/06/2013: Se cambiaron algunos nombres de atributos en los Objetos para hacerlos mas entendibles. (^[GS]^)
+	Agarrable -> NoAgarrable
+	Crucial -> NoLimpiar
+* 09/06/2013: Ahora es posible configurar si es posible arrogar objetos en zonas seguras (incluye al Drag&Drop). En Servidor.ini [OPCIONES] TirarOBJZonaSegura=1 (^[GS]^)
+* 09/06/2013: Se le cambio el nombre al comando del cliente /GUARDAMAPA por /GUARDARMAPA. (^[GS]^)
+* 11/06/2013: Nuevas funciones rápidas en el cliente, permite cambiar entre los inventarios de items y hechizos con la tecla [º] y equipar objetos utilizando la tecla [SHIFT]+CLICK. (^[GS]^)
+* 30/07/2013: Reparado error que impedía loguear un usuario con clan cuando el clan ya no existía. (^[GS]^)
+* 31/07/2013: Ahora el cliente cuenta con un bloq de notas interno, cifrado por usuario. (^[GS]^)
+* 06/08/2013: Se implemento el Minimapa en el Renderizado. (GoDKeR)
+* 07/08/2013: Se realizaron mejoras varias en el MiniMap en Render. Ademas de guardar la posición y leer las vistas desde el comprimido. (^[GS]^)
+* 16/08/2013: Se dio una mejora visual al efecto de "Rango reducido" (GoDKeR)
+* 22/08/2013: Ahora se contempla la información referida al volumen de la música y de los sonidos, almacenándose en AOSetup y siendo utilizada por el cliente desde su inicio. (^[GS]^)
+* 01/09/2013: Re-acomodo de los Triggers en los mapas. (^[GS]^)
+* 07/09/2013: Se agrego una ventana para utilizar en el dialogo con los NPC's que tengan mas de una opción posible y así evitar escribir comandos. Ejemplos: Cura, Boveda, Comerciantes con Quest, etc... (^[GS]^)
+* 09/09/2013: Se agregaron varias ecuaciones al sistema de particulas (GoDKeR)
+* 09/09/2013: Arreglos menores al sistema de particulas (GoDKeR)
+* 23/12/2013: Completado el sistema de Casamiento (GoDKeR)
+* 23/12/2013: Agregado el divorcio (GoDKeR)
+* 01/01/2014: Nombre en barca visible (GoDKeR)
+* 01/05/2014: Se re-agrupo el menú del cliente. (^[GS]^)
+* 05/07/2014: Se removio la Alineación en los Clanes. (Silver)
+* 10/08/2014: Mejorado el sistema de Happy Hour, ahora funciona solo durante una hora por día y se puede configurar el momento en servidor.ini. (^[GS]^)
+* 11/08/2014: Se optimizo la secuencia de login. (^[GS]^)
+* 12/08/2014: Se implemento el sistema de Quest extraido de BlisseAO. Fuente: http://www.gs-zone.org/threads/sistema-de-quests-blisseao.82560/ (^[GS]^)
+* 13/08/2014: Limpiado y optimizado el sistema de botones y cursores. (^[GS]^)
+* 14/08/2014: Se terminó de adaptar el sistema de Quest. (^[GS]^)
+* 28/09/2014: Ahora al ingresar bajo un techo se hace transaprente SOLO el techo en la capa 4 que se encuentre en contacto con la posición del usuario y no las otras casas o techos. (^[GS]^)

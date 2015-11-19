@@ -1,0 +1,30 @@
+Configurar en modMySQL.
+
+Public Const mySQLHost As String = "localhost" ' host de DB
+Public Const mySQLBase As String = "gszao" ' tabla de DB
+Public Const mySQLUser As String = "root" ' usuario de DB
+Public Const mySQLPass As String = "123456" ' contraseña de DB
+
+-- 
+-- Estructura de tabla para la tabla `charflags`
+-- 
+
+CREATE TABLE `charflags` (
+  `IndexPJ` int(11) NOT NULL auto_increment,
+  `Nombre` text NOT NULL,
+  `Ban` int(11) default NULL,
+  `Navegando` int(11) default NULL,
+  `Envenenado` int(11) default NULL,
+  `Pena` int(11) default NULL,
+  `Paralizado` int(11) default NULL,
+  `Desnudo` int(11) default NULL,
+  `Sed` int(11) default NULL,
+  `Hambre` int(11) default NULL,
+  `Escondido` int(11) default NULL,
+  `Muerto` int(11) default NULL,
+  `LastMap` int(11) default NULL,
+  `SkillsAsignados` int(11) default NULL,
+  `NPCSMUERTES` int(11) default NULL,
+  `USERMUERTES` int(11) default NULL,
+  PRIMARY KEY  (`IndexPJ`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;

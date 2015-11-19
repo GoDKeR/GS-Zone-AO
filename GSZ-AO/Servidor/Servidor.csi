@@ -1,0 +1,8 @@
+[History]
+1=#P0#=mb	#P1#=InfoHechizo	#P2#=GSZAOServidor/modSistemaHechizos/InfoHechizo	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130912120810	#P7#=0	#P8#=49	.
+2=#P0#=mb	#P1#=WriteShowPartyForm	#P2#=GSZAOServidor/modProtocol/WriteShowPartyForm	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130912120324	#P7#=0	#P8#=0	.
+3=#P0#=mb	#P1#=CargarHechizos	#P2#=GSZAOServidor/modFileIO/CargarHechizos	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130912115944	#P7#=0	#P8#=47	.
+4=#P0#=mb	#P1#=Enviar_HechizoANpc	#P2#=GSZAOServidor/modUsuarios/Enviar_HechizoANpc	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20130912113257	#P7#=0	#P8#=16	.
+5=#P0#=mb	#P1#=Enviar_HechizoAUser	#P2#=GSZAOServidor/modUsuarios/Enviar_HechizoAUser	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20130912113254	#P7#=0	#P8#=16	.
+6=#P0#=mb	#P1#=HendleLluviaDeORO	#P2#=GSZAOServidor/modProtocol/HendleLluviaDeORO	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130912113026	#P7#=0	#P8#=0	.
+7=#P0#=mb	#P1#=PuedeCasarse	#P2#=GSZAOServidor/modUsuarios/PuedeCasarse	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130912112313	#P7#=0	#P8#=23	.

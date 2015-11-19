@@ -1,0 +1,4 @@
+uAOAnimLongLabel = 75, 75, 952, 526, C, 50, 50, 927, 501, C
+uAOButton = 0, 0, 0, 0, C, 75, 75, 952, 526, C
+uAOCheckbox = 0, 0, 0, 0, C, 100, 100, 977, 551, C
+uAOProgress = 0, 0, 0, 0, C, 125, 125, 1002, 576, C

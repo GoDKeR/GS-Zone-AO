@@ -1,0 +1,9 @@
+frmMain = 50, 50, 921, 475, , 25, 25, 896, 450, C
+modGeneral = 125, 125, 996, 550, 
+frmSelMap = 75, 75, 946, 500, C, 25, 25, 896, 450, C
+modDirectorio = 50, 50, 921, 475, 
+modArchivo = 50, 50, 921, 475, 
+modConfig = 150, 150, 1021, 575, 
+modGrid = 150, 150, 1021, 575, Z
+modImageProcess = 200, 200, 1082, 625, 
+modPngGDI = 100, 100, 980, 551, 

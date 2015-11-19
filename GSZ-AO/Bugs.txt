@@ -1,0 +1,20 @@
+*************************************************************
+*************************************************************
+*************************************************************
+*** 							  ***
+*** 	 GGGGG	 SSSSSS	ZZZZZZZ		  AAA	 OOOOO	  ***
+*** 	GG   GG	SS	     ZZ		 AA AA	OO   OO	  ***
+*** 	G	SS	    ZZ		AA   AA	OO   OO	  ***
+*** 	G  GGGG	 SsSSS	  ZZZ	-------	AAAAAAA	OO   OO	  ***
+*** 	G    GG	     SS	 ZZ		AA   AA	OO   OO	  ***
+*** 	GG   GG	     SS	ZZ		AA   AA	OO   OO	  ***
+*** 	 GGGGG	SSSSSS	ZZZZZZZ		AA   AA	 OOOOO	  ***
+*** 							  ***
+*************************************************************
+*************************************************************
+*** 		      Reporte de Bugs	  		  ***
+*************************************************************
+*************************************************************
+
+06/05/2014 - El render de la madera necesaria en la ventana de carpinteria no se refresca hasta pasar el mouse por encima! :S
+(se puede probar facilmente entrando en GS pass gs)

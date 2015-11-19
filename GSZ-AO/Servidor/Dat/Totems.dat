@@ -1,0 +1,9 @@
+[INIT]
+NUMTOTEMS=0
+
+[TOTEM1]
+Name=Nombre del Totem
+Pos=MAPA-X-Y
+
+
+

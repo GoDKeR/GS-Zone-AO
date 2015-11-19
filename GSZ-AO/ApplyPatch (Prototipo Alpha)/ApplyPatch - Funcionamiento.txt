@@ -1,0 +1,12 @@
+Está es una herramienta de uso rapido, por consola, de funciones de verificación de versión y aplicación de parche de actualización para cualquier comprimido .AO.
+
+Modo de Uso:
+------------
+applypatch.exe [-v/-c/-a] [-s] archivo.AO parche.AO
+
+Operaciones:
+------------
+-v archivo.AO  			- Nos devuelve la versión del archivo.AO
+-c archivo.AO parche.AO		- Nos devuelve si el archivo parche.AO es compatible con archivo.AO
+-a archivo.AO parche.AO		- Aplica el parche.AO a archivo.AO.
+-s *				- Modo silencioso (omite los creditos)

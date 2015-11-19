@@ -1,0 +1,6 @@
+UPDATE
+Public Sub Desequipar(ByVal UserIndex As Integer, ByVal Slot As Byte, ByVal RefreshChar As Boolean)
+Public Function MakeUserChar(ByVal toMap As Boolean, ByVal sndIndex As Integer, ByVal UserIndex As Integer, ByVal Map As Integer, ByVal X As Integer, ByVal Y As Integer, Optional ButIndex As Boolean = False) As Boolean
+
+NEW
+Public Sub UpdateNpcsExp(ByVal Multiplicador As Single)

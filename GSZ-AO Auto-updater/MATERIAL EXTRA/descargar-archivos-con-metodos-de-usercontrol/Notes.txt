@@ -1,0 +1,13 @@
+Hi all!
+
+This is just a demonstration on how to use native VB6 'AsyncRead' function in an usercontrol.
+If you liked this, please vote!
+
+	NO API CALLS
+	NO EXTERNAL REFERENCES REQUIRED
+	NO EXTERNAL CONTROLS REQUIRED
+
+Cheers :)
+
+fclage@ezlinkng.com
+www.ezlinkng.com

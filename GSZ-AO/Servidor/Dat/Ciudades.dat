@@ -1,0 +1,27 @@
+[INIT]
+MaxCiudades=3
+
+[CIUDAD1]
+Mapa=1
+X=60
+Y=64
+
+[CIUDAD2]
+Mapa=10
+X=44
+Y=34
+
+[CIUDAD3]
+Mapa=22
+X=54
+Y=43
+
+[PRISION] ' Prisión
+Mapa=16
+X=50
+Y=50
+
+[LIBERTAD] ' Libertad de Prisión
+Mapa=16
+X=51
+Y=50

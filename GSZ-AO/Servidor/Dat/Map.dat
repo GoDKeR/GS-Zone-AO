@@ -1,0 +1,9 @@
+'En éste archivo se debe especificar la cantidad de mapas
+'que cargará el servidor y las carpetas en donde se encuentran los mapas
+
+[INIT]
+NumMaps=63
+
+MapFlagName=Mapa
+MapPath=\Maps\
+MapBackupPath=\WorldSave\

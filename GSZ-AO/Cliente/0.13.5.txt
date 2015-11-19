@@ -1,0 +1,8 @@
+UPDATE
+OK - Public Sub WriteChaosLegionKick(ByVal UserName As String, ByVal Reason As String)
+OK - Public Sub WriteRoyalArmyKick(ByVal UserName As String, ByVal Reason As String)
+
+NEW
+OK (/ACLAN) - Public Sub WriteAlterGuildName(ByVal GuildName As String, ByVal newGuildName As String) -> eGMCommands.AlterGuildName
+OK (/DMSG) - Public Sub WriteHigherAdminsMessage(ByVal Message As String) -> eGMCommands.HigherAdminsMessage
+OK - Public Function stringSinTildes(ByRef str As String) As String
