@@ -1,6 +1,6 @@
 Attribute VB_Name = "modTCP"
 'Argentum Online 0.12.2
-'Copyright (C) 2002 Márquez Pablo Ignacio
+'Copyright (C) 2002 MÃ¡rquez Pablo Ignacio
 '
 'This program is free software; you can redistribute it and/or modify
 'it under the terms of the Affero General Public License;
@@ -22,10 +22,10 @@ Attribute VB_Name = "modTCP"
 'You can contact me at:
 'morgolock@speedy.com.ar
 'www.geocities.com/gmorgolock
-'Calle 3 número 983 piso 7 dto A
+'Calle 3 nÃºmero 983 piso 7 dto A
 'La Plata - Pcia, Buenos Aires - Republica Argentina
-'Código Postal 1900
-'Pablo Ignacio Márquez
+'CÃ³digo Postal 1900
+'Pablo Ignacio MÃ¡rquez
 
 Option Explicit
 
@@ -360,9 +360,10 @@ Dim i As Long
 With UserList(UserIndex)
 
     If Not AsciiValidos(Name) Or LenB(Name) = 0 Or NombrePermitido(Name) = False Then
-        Call WriteErrorMsg(UserIndex, "Nombre inválido.")
+        Call WriteErrorMsg(UserIndex, "Nombre invÃ¡lido.")
         Exit Sub
     End If
+         
     
     If UserList(UserIndex).flags.UserLogged Then
         Call LogCheating("El usuario " & UserList(UserIndex).Name & " ha intentado crear a " & Name & " desde la IP " & UserList(UserIndex).ip)
@@ -374,26 +375,26 @@ With UserList(UserIndex)
         Exit Sub
     End If
        
-    '¿Existe el personaje? (Fedudok)
+    'Â¿Existe el personaje? (Fedudok)
     #If Mysql = 0 Then
     
-    If FileExist(CharPath & UCase$(Name) & ".chr", vbNormal) = True Then
+    If FileExist(CharPath & trim(UCase$(Name)) & ".chr", vbNormal) = True Then
         Call WriteErrorMsg(UserIndex, "Ya existe el personaje.")
         Exit Sub
     End If
     
     #Else
     
-    If ExistePersonaje(Name) Then
+    If ExistePersonaje(trim(Name)) Then
         Call WriteErrorMsg(UserIndex, "Ya existe el personaje.")
         Exit Sub
     End If
     
     #End If
-    '¿Existe el personaje? (Fedudok)
+    'Â¿Existe el personaje? (Fedudok)
     
     
-    'Tiró los dados antes de llegar acá??
+    'TirÃ³ los dados antes de llegar acÃ¡??
     If .Stats.UserAtributos(eAtributos.Fuerza) = 0 Then
         Call WriteErrorMsg(UserIndex, "Debe tirar los dados antes de poder crear un personaje.")
         Exit Sub
@@ -402,7 +403,7 @@ With UserList(UserIndex)
     If Not ValidarCabeza(UserRaza, UserSexo, Head) Then
         Call LogCheating("El usuario " & Name & " ha seleccionado la cabeza " & Head & " desde la IP " & .ip)
         
-        Call WriteErrorMsg(UserIndex, "Cabeza inválida, elija una cabeza seleccionable.")
+        Call WriteErrorMsg(UserIndex, "Cabeza invÃ¡lida, elija una cabeza seleccionable.")
         Exit Sub
     End If
     
@@ -502,7 +503,7 @@ With UserList(UserIndex)
     .Stats.ELU = 300
     .Stats.ELV = 1
     
-    '???????????????? INVENTARIO ¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+    '???????????????? INVENTARIO Â¿Â¿Â¿Â¿Â¿Â¿Â¿Â¿Â¿Â¿Â¿Â¿Â¿Â¿Â¿Â¿Â¿Â¿Â¿Â¿
     Dim Slot As Byte
     Dim IsPaladin As Boolean
     
@@ -645,8 +646,8 @@ On Error GoTo ErrHandler
         
         CloseSocketAtTorneo UserIndex
         
-        'Es el mismo user al que está revisando el centinela??
-        'IMPORTANTE!!! hacerlo antes de resetear así todavía sabemos el nombre del user
+        'Es el mismo user al que estÃ¡ revisando el centinela??
+        'IMPORTANTE!!! hacerlo antes de resetear asÃ­ todavÃ­a sabemos el nombre del user
         ' y lo podemos loguear
         Dim CentinelaIndex As Byte
         CentinelaIndex = .flags.CentinelaIndex
@@ -707,7 +708,7 @@ ErrHandler:
         Loop
     End If
 
-    Call LogError("CloseSocket - Error = " & Err.Number & " - Descripción = " & Err.description & " - UserIndex = " & UserIndex)
+    Call LogError("CloseSocket - Error = " & Err.Number & " - DescripciÃ³n = " & Err.description & " - UserIndex = " & UserIndex)
 End Sub
 
 #ElseIf UsarQueSocket = 0 Then
@@ -809,7 +810,7 @@ ErrHandler:
         End If
     End If
     
-    Call LogError("El usuario no guardado tenía connid " & CoNnEcTiOnId & ". Socket no liberado.")
+    Call LogError("El usuario no guardado tenÃ­a connid " & CoNnEcTiOnId & ". Socket no liberado.")
     Call ResetUserSlot(UserIndex)
 
 End Sub
@@ -917,8 +918,8 @@ Err:
 #ElseIf UsarQueSocket = 3 Then
     'THIS SOCKET DOESN`T USE THE BYTE QUEUE CLASS
     
-    'al carajo, esto encola solo!!! che, me aprobará los
-    'parciales también?, este control hace todo solo!!!!
+    'al carajo, esto encola solo!!! che, me aprobarÃ¡ los
+    'parciales tambiÃ©n?, este control hace todo solo!!!!
     On Error GoTo ErrorHandler
         
         If UserList(UserIndex).ConnID = -1 Then
@@ -1041,33 +1042,33 @@ With UserList(UserIndex)
     
     'Controlamos no pasar el maximo de usuarios
     If NumUsers >= iniMaxUsuarios Then
-        Call WriteErrorMsg(UserIndex, "El servidor ha alcanzado el máximo de usuarios soportado, por favor vuelva a intertarlo más tarde.")
+        Call WriteErrorMsg(UserIndex, "El servidor ha alcanzado el mÃ¡ximo de usuarios soportado, por favor vuelva a intertarlo mÃ¡s tarde.")
         Call FlushBuffer(UserIndex)
         Call CloseSocket(UserIndex)
         Exit Function
     End If
     
-    '¿Este IP ya esta conectado?
+    'Â¿Este IP ya esta conectado?
     If iniMultiLogin = 0 Then
         If CheckForSameIP(UserIndex, .ip) = True Then
-            Call WriteErrorMsg(UserIndex, "No es posible usar más de un personaje al mismo tiempo.")
+            Call WriteErrorMsg(UserIndex, "No es posible usar mÃ¡s de un personaje al mismo tiempo.")
             Call FlushBuffer(UserIndex)
             Call CloseSocket(UserIndex)
             Exit Function
         End If
     End If
     
-   '¿Este HD ya esta conectado?
+   'Â¿Este HD ya esta conectado?
     If iniMultiLogin = 0 Then ' GSZAO
         If CheckForSameHD(UserIndex, SerialHD) = True Then
-            Call WriteErrorMsg(UserIndex, "No es posible usar más de un personaje al mismo tiempo.")
+            Call WriteErrorMsg(UserIndex, "No es posible usar mÃ¡s de un personaje al mismo tiempo.")
             Call FlushBuffer(UserIndex)
             Call CloseSocket(UserIndex)
             Exit Function
         End If
     End If
     
-    '¿Existe el personaje?
+    'Â¿Existe el personaje?
     If Not FileExist(CharPath & UCase$(Name) & ".chr", vbNormal) Then
         Call WriteErrorMsg(UserIndex, "El personaje no existe.")
         Call FlushBuffer(UserIndex)
@@ -1075,7 +1076,7 @@ With UserList(UserIndex)
         Exit Function
     End If
        
-    '¿Es el passwd valido?
+    'Â¿Es el passwd valido?
     If UCase$(Password) <> UCase$(GetVar(CharPath & UCase$(Name) & ".chr", "INIT", "Password")) Then
         Call WriteErrorMsg(UserIndex, "Password incorrecto.")
         Call FlushBuffer(UserIndex)
@@ -1083,12 +1084,12 @@ With UserList(UserIndex)
         Exit Function
     End If
     
-    '¿Ya esta conectado el personaje?
+    'Â¿Ya esta conectado el personaje?
     If CheckForSameName(Name) Then
         If UserList(NameIndex(Name)).Counters.Saliendo Then
-            Call WriteErrorMsg(UserIndex, "El usuario está saliendo.")
+            Call WriteErrorMsg(UserIndex, "El usuario estÃ¡ saliendo.")
         Else
-            Call WriteErrorMsg(UserIndex, "Perdón, un usuario con el mismo nombre ya se encuentra logueado.")
+            Call WriteErrorMsg(UserIndex, "PerdÃ³n, un usuario con el mismo nombre ya se encuentra logueado.")
         End If
         Call FlushBuffer(UserIndex)
         Call CloseSocket(UserIndex)
@@ -1161,7 +1162,7 @@ With UserList(UserIndex)
         Exit Function
     End If
     
-    ' Configuración especial del cliente
+    ' ConfiguraciÃ³n especial del cliente
     Call WriteClientConfig(UserIndex)   ' GSZAO
     
     .Name = Name ' Nombre del jugador
@@ -1189,29 +1190,29 @@ With UserList(UserIndex)
     If .Invent.EscudoEqpSlot = 0 Then .Char.ShieldAnim = NingunEscudo
     If .Invent.CascoEqpSlot = 0 Then .Char.CascoAnim = NingunCasco
     If .Invent.WeaponEqpSlot = 0 Then .Char.WeaponAnim = NingunArma
-    ' ¿Tiene Mochila?
+    ' Â¿Tiene Mochila?
     If .Invent.MochilaEqpSlot > 0 Then
         .CurrentInventorySlots = MAX_NORMAL_INVENTORY_SLOTS + ObjData(.Invent.Object(.Invent.MochilaEqpSlot).ObjIndex).MochilaType * 5
     Else
         .CurrentInventorySlots = MAX_NORMAL_INVENTORY_SLOTS
     End If
     
-    ' ¿Seguro de resucitación?
+    ' Â¿Seguro de resucitaciÃ³n?
     'If (.flags.Muerto = 0) Then
-    '    .flags.SeguroResu = False ' Está muerto, por defecto el seguro esta deshabilitado
+    '    .flags.SeguroResu = False ' EstÃ¡ muerto, por defecto el seguro esta deshabilitado
     '    Call WriteMultiMessage(UserIndex, eMessages.ResuscitationSafeOff)
     'Else
-    '    .flags.SeguroResu = True ' Si está vivo e inicia, el seguro esta habilitado
+    '    .flags.SeguroResu = True ' Si estÃ¡ vivo e inicia, el seguro esta habilitado
     '    Call WriteMultiMessage(UserIndex, eMessages.ResuscitationSafeOn)
     'End If
-    ' SIEMPRE se inicia con el Seguro de Resurección activado
-    .flags.SeguroResu = True ' Si está vivo e inicia, el seguro esta habilitado
+    ' SIEMPRE se inicia con el Seguro de ResurecciÃ³n activado
+    .flags.SeguroResu = True ' Si estÃ¡ vivo e inicia, el seguro esta habilitado
     Call WriteMultiMessage(UserIndex, eMessages.ResuscitationSafeOn)
            
-    ' Le enviamos el número de Userindex (en el servidor)
+    ' Le enviamos el nÃºmero de Userindex (en el servidor)
     Call WriteUserIndexInServer(UserIndex)
                     
-    ' Posición de inicio al loguear
+    ' PosiciÃ³n de inicio al loguear
     Dim mapa As Integer
     mapa = .Pos.Map
     If mapa = 0 Then ' todo a 1 por defecto...
@@ -1221,7 +1222,7 @@ With UserList(UserIndex)
         mapa = 1 ' por defecto!
     Else
         If Not MapaValido(mapa) Then
-            Call WriteErrorMsg(UserIndex, "El personaje se encuenta en un mapa inválido.")
+            Call WriteErrorMsg(UserIndex, "El personaje se encuenta en un mapa invÃ¡lido.")
             Call FlushBuffer(UserIndex)
             Call CloseSocket(UserIndex)
             Exit Function
@@ -1239,7 +1240,7 @@ With UserList(UserIndex)
     End If
     
     'Tratamos de evitar en lo posible el "Telefrag". Solo 1 intento de loguear en pos adjacentes.
-    'Codigo por Pablo (ToxicWaste) y revisado por Nacho (Integer), corregido para que realmetne ande y no tire el server por Juan Martín Sotuyo Dodero (Maraxus)
+    'Codigo por Pablo (ToxicWaste) y revisado por Nacho (Integer), corregido para que realmetne ande y no tire el server por Juan MartÃ­n Sotuyo Dodero (Maraxus)
     If MapData(mapa, .Pos.X, .Pos.Y).UserIndex <> 0 Or MapData(mapa, .Pos.X, .Pos.Y).NpcIndex <> 0 Then
         Dim FoundPlace As Boolean
         Dim esAgua As Boolean
@@ -1312,12 +1313,12 @@ With UserList(UserIndex)
         .flags.Navegando = 1
     End If
     
-    ' ¿Esta navegando?
+    ' Â¿Esta navegando?
     If .flags.Navegando = 1 Then
         Call WriteNavigateToggle(UserIndex)
     End If
            
-    ' ¿Está paralizado?
+    ' Â¿EstÃ¡ paralizado?
     If .flags.Paralizado Then
         Call WriteParalizeOK(UserIndex)
     End If
@@ -1331,10 +1332,10 @@ With UserList(UserIndex)
         Exit Function
     End If
     
-    ' Le enviamos el número de UserCharIndex (en el servidor)
+    ' Le enviamos el nÃºmero de UserCharIndex (en el servidor)
     Call WriteUserCharIndexInServer(UserIndex)
         
-    Call CheckUserLevel(UserIndex) ' ¿Pasó de nivel por experiencia estando offline?
+    Call CheckUserLevel(UserIndex) ' Â¿PasÃ³ de nivel por experiencia estando offline?
     Call WriteUpdateUserStats(UserIndex) ' Vida, Mana, Stamina, Oro, Exp, Nivel
     Call WriteUpdateHungerAndThirst(UserIndex) ' Hambre y Agua
     Call WriteUpdateStrenghtAndDexterity(UserIndex) ' Fuerza y Agilidad
@@ -1374,29 +1375,29 @@ With UserList(UserIndex)
     ' Tiene Skilles libres? (GSZAO: Loguea mas lento si tiene skilles sin asignar, WHY???!)
     If .Stats.SkillPts > 0 Then
         Call WriteSendSkills(UserIndex) ' Envia los Skilles asignados por el usuario
-        Call WriteLevelUp(UserIndex, .Stats.SkillPts) ' Enviamos la información sobre los Skilles libres
+        Call WriteLevelUp(UserIndex, .Stats.SkillPts) ' Enviamos la informaciÃ³n sobre los Skilles libres
     End If
     
-    ' El servidor está haciendo Backup
+    ' El servidor estÃ¡ haciendo Backup
     If haciendoBK Then
         Call WritePauseToggle(UserIndex)
-        Call WriteMensajes(UserIndex, eMensajes.Mensaje385) '"Servidor> Por favor espera algunos segundos, el WorldSave está ejecutándose."
+        Call WriteMensajes(UserIndex, eMensajes.Mensaje385) '"Servidor> Por favor espera algunos segundos, el WorldSave estÃ¡ ejecutÃ¡ndose."
     End If
     
     ' El servidor esta haciendo una pausa temporal
     If EnPausa Then
         Call WritePauseToggle(UserIndex)
-        Call WriteMensajes(UserIndex, eMensajes.Mensaje386) '"Servidor> Lo sentimos mucho pero el servidor se encuentra actualmente detenido. Intenta ingresar más tarde."
+        Call WriteMensajes(UserIndex, eMensajes.Mensaje386) '"Servidor> Lo sentimos mucho pero el servidor se encuentra actualmente detenido. Intenta ingresar mÃ¡s tarde."
     End If
     
 
     ' Le pide al cliente mostrar el frmMain y activa el dibujo del render
     Call WriteLoggedMessage(UserIndex)
     
-    ' GSZAO hacemos la animación, luego de que "entre" y así lo pueda ver :)
+    ' GSZAO hacemos la animaciÃ³n, luego de que "entre" y asÃ­ lo pueda ver :)
     Call SendData(SendTarget.ToPCArea, UserIndex, PrepareMessageCreateFX(.Char.CharIndex, FXIDs.FXWARP, 0))
             
-    ' ¿Tiene mascotas y el mapa es inseguro?
+    ' Â¿Tiene mascotas y el mapa es inseguro?
     If .NroMascotas > 0 And MapInfo(.Pos.Map).Pk Then
         Dim i As Integer
         For i = 1 To MAXMASCOTAS
@@ -1413,7 +1414,7 @@ With UserList(UserIndex)
         Next i
     End If
     
-    ' ¿Tiene Clan?
+    ' Â¿Tiene Clan?
     If .GuildIndex > 0 Then
         'welcome to the show baby...
         If Not modGuilds.m_ConectarMiembroAClan(UserIndex, .GuildIndex) Then
@@ -1428,12 +1429,12 @@ With UserList(UserIndex)
     ' Al entrar, esta protegido del ataque de NPCs por 5 segundos, si no realiza ninguna accion
     Call IntervaloPermiteSerAtacado(UserIndex, True)
     
-    ' ¿Está lloviendo?
+    ' Â¿EstÃ¡ lloviendo?
     If Lloviendo Then
         Call WriteRainToggle(UserIndex)
     End If
     
-    ' ¿Le rechazaron una solicitud ingreso a algun clan?
+    ' Â¿Le rechazaron una solicitud ingreso a algun clan?
     tStr = modGuilds.a_ObtenerRechazoDeChar(.Name)
     If LenB(tStr) <> 0 Then
         Call WriteShowMessageBox(UserIndex, "Tu solicitud de ingreso al clan ha sido rechazada. El clan te explica que: " & tStr)
@@ -1442,12 +1443,12 @@ With UserList(UserIndex)
     ' Envia el mensaje de bienvenida
     Call SendMOTD(UserIndex)
     
-    ' ¿Es GM?
+    ' Â¿Es GM?
     If EsGm(UserIndex) Then
         Call SendData(SendTarget.ToAdmins, 0, PrepareMessageConsoleMsg("Admins> " & UserList(UserIndex).Name & " se ha conectado", FontTypeNames.FONTTYPE_SERVER)) ' GSZAO
     End If
     
-    ' GSZAO: Se asegurá de que el usuario se encuentre en una posición valida
+    ' GSZAO: Se asegurÃ¡ de que el usuario se encuentre en una posiciÃ³n valida
     Call DoTileEvents(UserIndex, .Pos.Map, .Pos.X, .Pos.Y)
     
     'Load the user statistics
@@ -1499,7 +1500,7 @@ Sub ResetFacciones(ByVal UserIndex As Integer)
         .CiudadanosMatados = 0
         .CriminalesMatados = 0
         .FuerzasCaos = 0
-        .FechaIngreso = "No ingresó a ninguna Facción"
+        .FechaIngreso = "No ingresÃ³ a ninguna FacciÃ³n"
         .RecibioArmaduraCaos = 0
         .RecibioArmaduraReal = 0
         .RecibioExpInicialCaos = 0
@@ -1972,7 +1973,7 @@ ErrHandler:
     Dim UserName As String
     If UserIndex > 0 Then UserName = UserList(UserIndex).Name
 
-    Call LogError("Error en CloseUser. Número " & Err.Number & " Descripción: " & Err.description & _
+    Call LogError("Error en CloseUser. NÃºmero " & Err.Number & " DescripciÃ³n: " & Err.description & _
         ".User: " & UserName & "(" & UserIndex & "). Map: " & Map)
 
 End Sub
