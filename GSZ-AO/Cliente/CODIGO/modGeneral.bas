@@ -1,10 +1,10 @@
 Attribute VB_Name = "modGeneral"
 'Argentum Online 0.11.6
 '
-'Copyright (C) 2002 M·rquez Pablo Ignacio
+'Copyright (C) 2002 M√°rquez Pablo Ignacio
 'Copyright (C) 2002 Otto Perez
 'Copyright (C) 2002 Aaron Perkins
-'Copyright (C) 2002 MatÌas Fernando PequeÒo
+'Copyright (C) 2002 Mat√≠as Fernando Peque√±o
 '
 'This program is free software; you can redistribute it and/or modify
 'it under the terms of the Affero General Public License;
@@ -26,10 +26,10 @@ Attribute VB_Name = "modGeneral"
 'You can contact me at:
 'morgolock@speedy.com.ar
 'www.geocities.com/gmorgolock
-'Calle 3 n˙mero 983 piso 7 dto A
+'Calle 3 n√∫mero 983 piso 7 dto A
 'La Plata - Pcia, Buenos Aires - Republica Argentina
-'CÛdigo Postal 1900
-'Pablo Ignacio M·rquez
+'C√≥digo Postal 1900
+'Pablo Ignacio M√°rquez
 
 Option Explicit
 Public usaParticulas As Boolean ' movelo donde lo creas correcto.
@@ -162,7 +162,7 @@ Sub AddtoRichTextBox(ByRef RichTextBox As RichTextBox, ByVal Text As String, Opt
 'Text box MUST be multiline and have a 3D
 'apperance!
 'Pablo (ToxicWaste) 01/26/2007 : Now the list refeshes properly.
-'Juan MartÌn Sotuyo Dodero (Maraxus) 03/29/2007 : Replaced ToxicWaste's code for extra performance.
+'Juan Mart√≠n Sotuyo Dodero (Maraxus) 03/29/2007 : Replaced ToxicWaste's code for extra performance.
 '******************************************r
     With RichTextBox
         If Len(.Text) > 1000 Then
@@ -228,7 +228,7 @@ Function AsciiValidos(ByVal cad As String) As Boolean
     For i = 1 To Len(cad)
         car = Asc(mid$(cad, i, 1))
         
-        ' Asc("∫") = 186
+        ' Asc("¬∫") = 186
         If ((car < 97 Or car > 122) Or car = 186) And (car <> 255) And (car <> 32) Then
             Exit Function
         End If
@@ -243,7 +243,7 @@ Function CheckUserData(ByVal checkemail As Boolean) As Boolean
     Dim CharAscii As Integer
     
     If checkemail And LenB(UserEmail) = 0 Then
-        MsgBox ("DirecciÛn de email inv·lida.")
+        MsgBox ("Direcci√≥n de email inv√°lida.")
         Exit Function
     End If
     
@@ -255,7 +255,7 @@ Function CheckUserData(ByVal checkemail As Boolean) As Boolean
     For loopC = 1 To Len(UserPassword)
         CharAscii = Asc(mid$(UserPassword, loopC, 1))
         If Not LegalCharacter(CharAscii) Then
-            MsgBox ("Password inv·lido. El caracter " & Chr$(CharAscii) & " no est· permitido.")
+            MsgBox ("Password inv√°lido. El caracter " & Chr$(CharAscii) & " no est√° permitido.")
             Exit Function
         End If
     Next loopC
@@ -273,7 +273,7 @@ Function CheckUserData(ByVal checkemail As Boolean) As Boolean
     For loopC = 1 To Len(UserName)
         CharAscii = Asc(mid$(UserName, loopC, 1))
         If Not LegalCharacter(CharAscii) Then
-            MsgBox ("Nombre inv·lido. El caracter " & Chr$(CharAscii) & " no est· permitido.")
+            MsgBox ("Nombre inv√°lido. El caracter " & Chr$(CharAscii) & " no est√° permitido.")
             Exit Function
         End If
     Next loopC
@@ -360,7 +360,7 @@ Sub MoveTo(ByVal Direccion As E_Heading)
 'Last Modified By: Lucas Tavolaro Ortiz (Tavo)
 ' 06/03/2006: AlejoLp - Elimine las funciones Move[NSWE] y las converti a esta
 ' 12/08/2007: Tavo    - Si el usuario esta paralizado no se puede mover.
-' 06/28/2008: NicoNZ - SaquÈ lo que impedÌa que si el usuario estaba paralizado se ejecute el sub.
+' 06/28/2008: NicoNZ - Saqu√© lo que imped√≠a que si el usuario estaba paralizado se ejecute el sub.
 '***************************************************
     Dim LegalOk As Boolean
     
@@ -378,7 +378,7 @@ Sub MoveTo(ByVal Direccion As E_Heading)
     End Select
     
     If LegalOk And Not UserParalizado Then
-        'MeditaciÛn r·pida - maTih 07/04/2012.
+        'Meditaci√≥n r√°pida - maTih 07/04/2012.
         If ClMeditarRapido Then
             If UserMeditar Then UserMeditar = False
         End If
@@ -430,7 +430,7 @@ Private Sub CheckKeys()
     'If game is paused, abort movement.
     If pausa Then Exit Sub
     
-    'TODO: DeberÌa informarle por consola?
+    'TODO: Deber√≠a informarle por consola?
     If Traveling Then Exit Sub
 
     'Control movement interval (this enforces the 1 step loss when meditating / resting client-side)
@@ -492,11 +492,11 @@ Private Sub CheckKeys()
     End If
 End Sub
 
-'TODO : Si bien nunca estuvo allÌ, el mapa es algo independiente o a lo sumo dependiente del engine, no va ac·!!!
+'TODO : Si bien nunca estuvo all√≠, el mapa es algo independiente o a lo sumo dependiente del engine, no va ac√°!!!
 Sub SwitchMap(ByVal Map As Integer)
 '**************************************************************
 ' Formato de mapas optimizado para reducir el espacio que ocupan.
-' DiseÒado y creado por Juan MartÌn Sotuyo Dodero (Maraxus) (juansotuyo@hotmail.com)
+' Dise√±ado y creado por Juan Mart√≠n Sotuyo Dodero (Maraxus) (juansotuyo@hotmail.com)
 ' Last Modify Date: 09/09/2012 - ^[GS]^
 '**************************************************************
 On Error GoTo errorH
@@ -619,7 +619,7 @@ End Sub
 Function ReadField(ByVal Pos As Integer, ByRef Text As String, ByVal SepASCII As Byte) As String
 '*****************************************************************
 'Gets a field from a delimited string
-'Author: Juan MartÌn Sotuyo Dodero (Maraxus)
+'Author: Juan Mart√≠n Sotuyo Dodero (Maraxus)
 'Last Modify Date: 11/15/2004
 '*****************************************************************
     Dim i As Long
@@ -644,7 +644,7 @@ End Function
 Function FieldCount(ByRef Text As String, ByVal SepASCII As Byte) As Long
 '*****************************************************************
 'Gets the number of fields in a delimited string
-'Author: Juan MartÌn Sotuyo Dodero (Maraxus)
+'Author: Juan Mart√≠n Sotuyo Dodero (Maraxus)
 'Last Modify Date: 07/29/2007
 '*****************************************************************
     Dim Count As Long
@@ -707,19 +707,19 @@ On Error GoTo errorH
         Next i
         
     ElseIf ObtenerIP = 1 Then
-        ' AquÌ configuramos donde se conecta nuestro cliente de manera "fija".
+        ' Aqu√≠ configuramos donde se conecta nuestro cliente de manera "fija".
         
         ReDim ServersLst(1 To 1) As tServerInfo
         ServersLst(1).Desc = "Localhost" ' innecesario, no se usa
-        ServersLst(1).Ip = "127.0.0.1" ' t˙ IP
-        ServersLst(1).Puerto = 7666 ' t˙ puerto
-        ServersLst(1).PassRecPort = 7667 ' puerto de recuperaciÛn de PJ o auxiliar
+        ServersLst(1).Ip = "127.0.0.1" ' t√∫ IP
+        ServersLst(1).Puerto = 7666 ' t√∫ puerto
+        ServersLst(1).PassRecPort = 7667 ' puerto de recuperaci√≥n de PJ o auxiliar
         
     ElseIf ObtenerIP = 2 Then
-        ' AquÌ tenemos que configurar la web de donde obtendra los datos de conexiÛn
+        ' Aqu√≠ tenemos que configurar la web de donde obtendra los datos de conexi√≥n
         ' Ejemplo:
         ' Localhost:127.0.0.1:7666:7667
-        F = frmMain.iWeb.OpenURL("http://www.gs-zone.org/svr.txt") ' AquÌ configura la URL de tus datos
+        F = frmMain.iWeb.OpenURL("http://www.gs-zone.org/svr.txt") ' Aqu√≠ configura la URL de tus datos
 
         ServersLst(1).Desc = ReadField(1, F, ":")
         ServersLst(1).Ip = ReadField(2, F, ":")
@@ -801,7 +801,7 @@ Sub Main()
     If FileExist(sPathINIT & fConfigInit, vbNormal) Then
         ClientConfigInit = modGameIni.LeerConfigInit()
     Else
-        Call MsgBox("Se requiere del archivo de configuraciÛn 'Config.Init' en la carpeta INIT del cliente.", vbCritical + vbOKOnly)
+        Call MsgBox("Se requiere del archivo de configuraci√≥n 'Config.Init' en la carpeta INIT del cliente.", vbCritical + vbOKOnly)
         Call CloseClient ' Cerramos el cliente
     End If
     
@@ -810,8 +810,8 @@ Sub Main()
     Call modGameIni.LoadClientAOSetup 'Load AOSetup.dat config file
     Call modGameIni.InitFilePaths 'Init Paths
     
-    ' GSZAO Cambiar si los recursos .AO utilizan contraseÒa...
-    ' NOTA: Con "" se deshabilita la utilizaciÛn de contraseÒa!
+    ' GSZAO Cambiar si los recursos .AO utilizan contrase√±a...
+    ' NOTA: Con "" se deshabilita la utilizaci√≥n de contrase√±a!
     Call modCompression.GenerateContra("", 0) ' 0 = Graficos.AO
     Call modCompression.GenerateContra("", 1) ' 1 = Mapas.AO
     
@@ -824,7 +824,7 @@ Sub Main()
     
 #If Testeo = 0 Then
     If FindPreviousInstance Then
-        Call MsgBox("°Argentum Online ya est· siendo ejecutado!" & vbCrLf & "No es posible ejecutar otra instancia del juego." & vbCrLf & "Haga click en Aceptar para salir.", vbApplicationModal + vbInformation + vbOKOnly, "Error al ejecutar")
+        Call MsgBox("¬°Argentum Online ya est√° siendo ejecutado!" & vbCrLf & "No es posible ejecutar otra instancia del juego." & vbCrLf & "Haga click en Aceptar para salir.", vbApplicationModal + vbInformation + vbOKOnly, "Error al ejecutar")
         End
     End If
 #Else
@@ -846,9 +846,9 @@ Sub Main()
     MD5HushYo = "0123456789abcdef"  'We aren't using a real MD5
     
     tipf = ClientConfigInit.MostrarTips
-    
-    'Set resolution BEFORE the loading form is displayed, therefore it will be centered.
+    If NoRes = True Then
     Call modResolution.SetResolution
+    End If
     
     ' Load constants, classes, flags, graphics..
     Call LoadInitialConfig ' 0.13.3
@@ -862,7 +862,7 @@ Sub Main()
     PresPath = DirGraficos & "Presentacion" & RandomNumber(1, 4) & ".jpg"
     
     frmPres.Picture = LoadPicture(PresPath)
-    frmPres.Show vbModal    'Es modal, asÌ que se detiene la ejecuciÛn de Main hasta que se desaparece
+    frmPres.Show vbModal    'Es modal, as√≠ que se detiene la ejecuci√≥n de Main hasta que se desaparece
 #End If
 
     frmMain.Socket1.Startup
@@ -870,7 +870,7 @@ Sub Main()
     frmConnect.MousePointer = vbDefault
     frmConnect.Visible = True
     
-    'InicializaciÛn de variables globales
+    'Inicializaci√≥n de variables globales
     PrimeraVez = True
     prgRun = True
     pausa = False
@@ -889,7 +889,7 @@ Sub Main()
     Call Load(frmScreenshots)
 
     Do While prgRun
-        'SÛlo dibujamos si la ventana no est· minimizada
+        'S√≥lo dibujamos si la ventana no est√° minimizada
         If frmMain.WindowState <> 1 And frmMain.Visible Then
             Call ShowNextFrame(frmMain.Top, frmMain.Left, frmMain.MouseX, frmMain.MouseY)
             
@@ -1052,7 +1052,7 @@ Private Sub LoadInitialConfig() ' 0.13.3
     
     Call AddtoRichTextBox(frmCargando.status, "Iniciando Motor de Inventario... ", 255, 255, 255, True, False, True)
     
-    'Inicializamos el inventario gr·fico
+    'Inicializamos el inventario gr√°fico
     Call Inventario.Initialize(DirectD3D8, frmMain.PicInv, MAX_INVENTORY_SLOTS, , , , , , , , True)
     
     frmCargando.cCargando.Value = frmCargando.cCargando.Value + 1 ' 15
@@ -1092,7 +1092,7 @@ Private Sub LoadInitialConfig() ' 0.13.3
     '######
     ' LISTO
 
-    Call AddtoRichTextBox(frmCargando.status, "°Bienvenido a " & NombreCliente & "!", 0, 255, 0, True, False, True)
+    Call AddtoRichTextBox(frmCargando.status, "¬°Bienvenido a " & NombreCliente & "!", 0, 255, 0, True, False, True)
     DoEvents
     
     'Give the user enough time to read the welcome text
@@ -1163,9 +1163,9 @@ End Function
 
 '[CODE 002]:MatuX
 '
-'  FunciÛn para chequear el email
+'  Funci√≥n para chequear el email
 '
-'  Corregida por Maraxus para que reconozca como v·lidas casillas con puntos antes de la arroba y evitar un chequeo innecesario
+'  Corregida por Maraxus para que reconozca como v√°lidas casillas con puntos antes de la arroba y evitar un chequeo innecesario
 Public Function CheckMailString(ByVal sString As String) As Boolean
 On Error GoTo errHnd
     Dim lPos  As Long
@@ -1175,11 +1175,11 @@ On Error GoTo errHnd
     '1er test: Busca un simbolo @
     lPos = InStr(sString, "@")
     If (lPos <> 0) Then
-        '2do test: Busca un simbolo . despuÈs de @ + 1
+        '2do test: Busca un simbolo . despu√©s de @ + 1
         If Not (InStr(lPos, sString, ".", vbBinaryCompare) > lPos + 1) Then _
             Exit Function
         
-        '3er test: Recorre todos los caracteres y los valÌda
+        '3er test: Recorre todos los caracteres y los val√≠da
         For lX = 0 To Len(sString) - 1
             If Not (lX = (lPos - 1)) Then   'No chequeamos la '@'
                 iAsc = Asc(mid$(sString, (lX + 1), 1))
@@ -1194,7 +1194,7 @@ On Error GoTo errHnd
 errHnd:
 End Function
 
-'  Corregida por Maraxus para que reconozca como v·lidas casillas con puntos antes de la arroba
+'  Corregida por Maraxus para que reconozca como v√°lidas casillas con puntos antes de la arroba
 Private Function CMSValidateChar_(ByVal iAsc As Integer) As Boolean
     CMSValidateChar_ = (iAsc >= 48 And iAsc <= 57) Or _
                         (iAsc >= 65 And iAsc <= 90) Or _
@@ -1202,7 +1202,7 @@ Private Function CMSValidateChar_(ByVal iAsc As Integer) As Boolean
                         (iAsc = 95) Or (iAsc = 45) Or (iAsc = 46)
 End Function
 
-'TODO : como todo lo relativo a mapas, no tiene nada que hacer ac·....
+'TODO : como todo lo relativo a mapas, no tiene nada que hacer ac√°....
 Function HayAgua(ByVal X As Integer, ByVal Y As Integer) As Boolean
     HayAgua = ((MapData(X, Y).Graphic(1).GrhIndex >= 1505 And MapData(X, Y).Graphic(1).GrhIndex <= 1520) Or _
             (MapData(X, Y).Graphic(1).GrhIndex >= 5665 And MapData(X, Y).Graphic(1).GrhIndex <= 5680) Or _
@@ -1275,7 +1275,7 @@ On Error GoTo error
         'No recibe update, ejecutar AU
         'Ejecuto el AoUpdate, sino me voy
         If Dir(App.Path & "\AoUpdate.exe", vbArchive) = vbNullString Then
-            MsgBox "No se encuentra el archivo de actualizaciÛn AoUpdate.exe por favor descarguelo y vuelva a intentar", vbCritical
+            MsgBox "No se encuentra el archivo de actualizaci√≥n AoUpdate.exe por favor descarguelo y vuelva a intentar", vbCritical
             Call CloseClient ' Cerramos el cliente
         Else
             FileCopy App.Path & "\AoUpdate.exe", App.Path & "\AoUpdateTMP.exe"
@@ -1293,7 +1293,7 @@ On Error GoTo error
 Exit Sub
 
 error:
-    If Err.Number = 75 Then 'Si el archivo AoUpdateTMP.exe est· en uso, entonces esperamos 5 ms y volvemos a intentarlo hasta que nos deje.
+    If Err.Number = 75 Then 'Si el archivo AoUpdateTMP.exe est√° en uso, entonces esperamos 5 ms y volvemos a intentarlo hasta que nos deje.
         Sleep 5
         Resume
     Else
@@ -1304,12 +1304,12 @@ End Sub
 
 Private Sub InicializarNombres()
 '**************************************************************
-'Author: Juan MartÌn Sotuyo Dodero (Maraxus)
+'Author: Juan Mart√≠n Sotuyo Dodero (Maraxus)
 'Last Modify Date: 07/09/2012 - ^[GS]^
 'Inicializa los nombres de razas, ciudades, clases, skills, atributos, etc.
 '**************************************************************
 
-    ' ConfiguraciÛn de las ciudades que se podr·n elegir al crear un nuevo Personaje
+    ' Configuraci√≥n de las ciudades que se podr√°n elegir al crear un nuevo Personaje
     Ciudades(1) = "Keeg-Mai"
     Ciudades(2) = "Nork-Dor"
     Ciudades(3) = "Sait-Zeb"
@@ -1323,14 +1323,14 @@ Private Sub InicializarNombres()
     
     ' Clases
     ListaClases(eClass.Mage) = "Mago"
-    ListaClases(eClass.Cleric) = "ClÈrigo"
+    ListaClases(eClass.Cleric) = "Cl√©rigo"
     ListaClases(eClass.Warrior) = "Guerrero"
     ListaClases(eClass.Assasin) = "Asesino"
-    ListaClases(eClass.Thief) = "LadrÛn"
+    ListaClases(eClass.Thief) = "Ladr√≥n"
     ListaClases(eClass.Bard) = "Bardo"
     ListaClases(eClass.Druid) = "Druida"
     ListaClases(eClass.Bandit) = "Bandido"
-    ListaClases(eClass.Paladin) = "PaladÌn"
+    ListaClases(eClass.Paladin) = "Palad√≠n"
     ListaClases(eClass.Hunter) = "Cazador"
     ListaClases(eClass.Worker) = "Trabajador"
     ListaClases(eClass.Pirat) = "Pirata"
@@ -1338,31 +1338,31 @@ Private Sub InicializarNombres()
     ' Skills
     SkillsNames(eSkill.Magia) = "Magia"
     SkillsNames(eSkill.Robar) = "Robar"
-    SkillsNames(eSkill.Tacticas) = "EvasiÛn en combate"
+    SkillsNames(eSkill.Tacticas) = "Evasi√≥n en combate"
     SkillsNames(eSkill.Armas) = "Combate cuerpo a cuerpo"
     SkillsNames(eSkill.Meditar) = "Meditar"
-    SkillsNames(eSkill.ApuÒalar) = "ApuÒalar"
+    SkillsNames(eSkill.Apu√±alar) = "Apu√±alar"
     SkillsNames(eSkill.Ocultarse) = "Ocultarse"
     SkillsNames(eSkill.Supervivencia) = "Supervivencia"
-    SkillsNames(eSkill.Talar) = "Talar ·rboles"
+    SkillsNames(eSkill.Talar) = "Talar √°rboles"
     SkillsNames(eSkill.Comerciar) = "Comercio"
     SkillsNames(eSkill.Defensa) = "Defensa con escudos"
     SkillsNames(eSkill.Pesca) = "Pesca"
-    SkillsNames(eSkill.Mineria) = "MinerÌa"
-    SkillsNames(eSkill.Carpinteria) = "CarpinterÌa"
-    SkillsNames(eSkill.Herreria) = "HerrerÌa"
+    SkillsNames(eSkill.Mineria) = "Miner√≠a"
+    SkillsNames(eSkill.Carpinteria) = "Carpinter√≠a"
+    SkillsNames(eSkill.Herreria) = "Herrer√≠a"
     SkillsNames(eSkill.Liderazgo) = "Liderazgo"
     SkillsNames(eSkill.Domar) = "Domar animales"
     SkillsNames(eSkill.Proyectiles) = "Combate a distancia"
     SkillsNames(eSkill.Wrestling) = "Combate sin armas"
-    SkillsNames(eSkill.Navegacion) = "NavegaciÛn"
+    SkillsNames(eSkill.Navegacion) = "Navegaci√≥n"
 
     ' Atributos
     AtributosNames(eAtributos.Fuerza) = "Fuerza"
     AtributosNames(eAtributos.Agilidad) = "Agilidad"
     AtributosNames(eAtributos.Inteligencia) = "Inteligencia"
     AtributosNames(eAtributos.Carisma) = "Carisma"
-    AtributosNames(eAtributos.Constitucion) = "ConstituciÛn"
+    AtributosNames(eAtributos.Constitucion) = "Constituci√≥n"
 End Sub
 
 ''
@@ -1370,7 +1370,7 @@ End Sub
 
 Public Sub CleanDialogs()
 '**************************************************************
-'Author: Juan MartÌn Sotuyo Dodero (Maraxus)
+'Author: Juan Mart√≠n Sotuyo Dodero (Maraxus)
 'Last Modify Date: 11/27/2005
 'Removes all text from the console and dialogs
 '**************************************************************
@@ -1507,7 +1507,7 @@ End Function
 
 Public Sub CloseClient()
 '**************************************************************
-'Author: Juan MartÌn Sotuyo Dodero (Maraxus)
+'Author: Juan Mart√≠n Sotuyo Dodero (Maraxus)
 'Last Modify Date: 02/08/2012 - ^[GS]^
 'Frees all used resources, cleans up and leaves
 '**************************************************************
@@ -1522,14 +1522,14 @@ Public Sub CloseClient()
     
     DoEvents
     
-    Call modResolution.ResetResolution
+    If NoRes = False Then Call modResolution.ResetResolution
     
     'Stop tile engine
     Call DeinitTileEngine
     
     Call modGameIni.SaveClientAOSetup
     
-    'Destruimos los objetos p˙blicos creados
+    'Destruimos los objetos p√∫blicos creados
     Set CustomMessages = Nothing
     Set CustomKeys = Nothing
     Set SurfaceDB = Nothing
@@ -1659,20 +1659,20 @@ Public Function stringSinTildes(ByRef str As String) As String ' 0.13.5
     
     temp = str
     
-    If InStr(1, str, "·") > 0 Then temp = Replace(temp, "·", "a")
-    If InStr(1, str, "¡") > 0 Then temp = Replace(temp, "¡", "A")
+    If InStr(1, str, "√°") > 0 Then temp = Replace(temp, "√°", "a")
+    If InStr(1, str, "√Å") > 0 Then temp = Replace(temp, "√Å", "A")
     
-    If InStr(1, str, "È") > 0 Then temp = Replace(temp, "È", "e")
-    If InStr(1, str, "…") > 0 Then temp = Replace(temp, "…", "E")
+    If InStr(1, str, "√©") > 0 Then temp = Replace(temp, "√©", "e")
+    If InStr(1, str, "√â") > 0 Then temp = Replace(temp, "√â", "E")
     
-    If InStr(1, str, "Ì") > 0 Then temp = Replace(temp, "Ì", "i")
-    If InStr(1, str, "Õ") > 0 Then temp = Replace(temp, "Õ", "I")
+    If InStr(1, str, "√≠") > 0 Then temp = Replace(temp, "√≠", "i")
+    If InStr(1, str, "√ç") > 0 Then temp = Replace(temp, "√ç", "I")
     
-    If InStr(1, str, "Û") > 0 Then temp = Replace(temp, "Û", "o")
-    If InStr(1, str, "”") > 0 Then temp = Replace(temp, "”", "O")
+    If InStr(1, str, "√≥") > 0 Then temp = Replace(temp, "√≥", "o")
+    If InStr(1, str, "√ì") > 0 Then temp = Replace(temp, "√ì", "O")
     
-    If InStr(1, str, "˙") > 0 Then temp = Replace(temp, "˙", "u")
-    If InStr(1, str, "⁄") > 0 Then temp = Replace(temp, "⁄", "U")
+    If InStr(1, str, "√∫") > 0 Then temp = Replace(temp, "√∫", "u")
+    If InStr(1, str, "√ö") > 0 Then temp = Replace(temp, "√ö", "U")
     
     stringSinTildes = temp
 End Function
